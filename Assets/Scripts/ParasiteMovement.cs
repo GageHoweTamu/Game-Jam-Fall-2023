@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour
+public class PlayerController3 : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2;
     private bool isGrounded;
