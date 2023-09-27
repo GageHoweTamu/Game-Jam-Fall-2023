@@ -9,7 +9,7 @@ public class EnemySpawnerScript : MonoBehaviour
     void Start()
     {
         Instantiate(enemy, new Vector3(5, -3, 0), transform.rotation);
-        Instantiate(enemy, new Vector3(-5, -3, 0), transform.rotation);
+        //Instantiate(enemy, new Vector3(-5, -3, 0), transform.rotation);
     }
 
     // Update is called once per frame

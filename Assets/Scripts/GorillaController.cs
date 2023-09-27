@@ -32,17 +32,13 @@ public class GorillaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    public void Controlled(float horizontal)
+    {
         gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
 
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-
-            isGrounded = false;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 9.0f, ForceMode2D.Impulse);
-        }
-        */
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             timer = Time.time;
@@ -55,6 +51,5 @@ public class GorillaController : MonoBehaviour
             jpower = Time.time - timer;
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
         }
-
     }
 }

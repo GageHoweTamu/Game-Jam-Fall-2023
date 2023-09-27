@@ -6,10 +6,10 @@ public class PlayerScript : MonoBehaviour
 {
     private float horizontal = 0;
     private float vertical = 0;
-    private float speed = 250;
+    private float movementSpeed = 2;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    public EnemyScript host;
+    public GorillaController host;
     public bool controlling;
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,9 @@ public class PlayerScript : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         if (controlling == true)
         {
+            host.Controlled(horizontal); //tells the controlled enemy to move
             transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 controlling = false;
                 transform.position = new Vector3(host.transform.position.x, (host.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
@@ -35,17 +36,9 @@ public class PlayerScript : MonoBehaviour
                 sprite.enabled = true; //turns the sprite back on
             }
         }
-    }
-
-    void FixedUpdate()
-    {
-        if (controlling == true)
-        {
-            host.Controlled(horizontal, vertical); //tells the controlled enemy to move
-        }
         else
         {
-            rb.velocity = new Vector2(horizontal * speed * Time.fixedDeltaTime, vertical * speed * Time.fixedDeltaTime); //if not controlling an enemy, moves itself
+            gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f); //if not controlling an enemy, moves itself
         }
     }
 
@@ -53,7 +46,7 @@ public class PlayerScript : MonoBehaviour
     {
         if ((collision.gameObject.layer == 3) && (!controlling)) //for different enemies, all that matters is they are on the same game layer (ex. 3: Enemy), and all have same names for functions to be called (ex. host.Controlled)
         {
-            host = collision.gameObject.GetComponent<EnemyScript>();
+            host = collision.gameObject.GetComponent<GorillaController>();
             rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
             sprite.enabled = false; //turns off sprite
             transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
