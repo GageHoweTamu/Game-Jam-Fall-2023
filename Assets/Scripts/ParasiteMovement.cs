@@ -26,7 +26,7 @@ public class PlayerController3 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        UnityEngine.Debug.Log("Collision");
+        
         if (collision.transform.tag.Equals("Platform"))
         {
             isGrounded = true;
@@ -40,7 +40,6 @@ public class PlayerController3 : MonoBehaviour
             gameObject.transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             controlling = true; //condition tracking current state: parasite or controlling enemy
             collision.gameObject.tag = "Player";
-            UnityEngine.Debug.Log("Controlling");
         }
 
     }
