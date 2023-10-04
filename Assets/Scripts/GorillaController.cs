@@ -81,8 +81,8 @@ public class GorillaController : MonoBehaviour
         {
             if (isFacingRight)
             {
-                attacking = true;
                 gameObject.transform.position += new Vector3(3, 0.0f, 0.0f); //gorilla attack right
+                attacking = true;
             }
             if (!isFacingRight)
             {
