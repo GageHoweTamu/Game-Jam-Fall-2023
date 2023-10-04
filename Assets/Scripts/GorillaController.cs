@@ -5,7 +5,7 @@ using UnityEngine;
 public class GorillaController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2;
-    private bool isGrounded;
+    public bool isGrounded;
     private Rigidbody2D rb;
     private float jpower;
     private float timer;
@@ -83,6 +83,8 @@ public class GorillaController : MonoBehaviour
             {
                 attacking = true;
                 gameObject.transform.position += new Vector3(3, 0.0f, 0.0f); //gorilla attack right
+                rb.AddForce(Vector2.right * 3, ForceMode2D.Impulse);
+
             }
             if (!isFacingRight)
             {
