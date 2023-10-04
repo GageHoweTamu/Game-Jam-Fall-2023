@@ -13,7 +13,6 @@ public class PlayerController3 : MonoBehaviour
     public bool controlling;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
-    public bool controlled;
 
     // Start is called before the first frame update
     private void Start()
@@ -41,15 +40,6 @@ public class PlayerController3 : MonoBehaviour
             gameObject.transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             controlling = true; //condition tracking current state: parasite or controlling enemy
             collision.gameObject.tag = "Player";
-            gameObject.tag = "Untagged"; //untags parasite as player
-            if (collision.gameObject.name == "Gorilla")
-            {
-                UnityEngine.Debug.Log("True");
-            }
-            else
-            {
-                UnityEngine.Debug.Log("False");
-            }
         }
 
     }
@@ -71,7 +61,6 @@ public class PlayerController3 : MonoBehaviour
                 transform.position = new Vector3(host.transform.position.x, (host.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                 rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
                 sprite.enabled = true; //turns the sprite back on
-                gameObject.tag = "Player"; //retags parasite as player
             }
         }
         else
@@ -118,6 +107,5 @@ public class PlayerController3 : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
 
 }
