@@ -13,6 +13,7 @@ public class PlayerController3 : MonoBehaviour
     public bool controlling;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
+    private Animator anim;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,7 +22,7 @@ public class PlayerController3 : MonoBehaviour
         controlling = false;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-
+        anim = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,7 +49,6 @@ public class PlayerController3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (controlling == true)
@@ -67,8 +67,9 @@ public class PlayerController3 : MonoBehaviour
         {
             Flip();
 
-            if (isGrounded)
+            if (isGrounded) // grounded
             {
+                anim.speed = Mathf.Abs(rb.velocity.x * 0.7f);
                 if (Input.GetAxis("Horizontal") != 0.0f)
                 {
                     rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed, rb.velocity.y);
@@ -76,8 +77,10 @@ public class PlayerController3 : MonoBehaviour
                     // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0.0f, 0.0f), ForceMode2D.Impulse);
                 }
             }
-            else
+            else // not grounded
             {
+                //FINISH!!!
+                // anim.state = 
                 if (Input.GetAxis("Horizontal") != 0.0f)
                 {
                     rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * 2.0f, rb.velocity.y);
