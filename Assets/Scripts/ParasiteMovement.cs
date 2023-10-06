@@ -9,7 +9,12 @@ public class PlayerController3 : MonoBehaviour
     private bool isGrounded;
     private float horizontal;
     private bool isFacingRight = true;
-    public GorillaController host;
+    public GameObject gorilla;
+    public GorillaController gorillaScript;
+    public string gorillaName = "Gorilla(Clone)";
+    public GameObject cheetah;
+    public CheetahController cheetahScript;
+    public string cheetahName = "Cheetah";
     public bool controlling;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
@@ -33,16 +38,28 @@ public class PlayerController3 : MonoBehaviour
             isGrounded = true;
 
         }
-        else if ((collision.gameObject.tag == "Enemy") && (!controlling)) //for different enemies, all that matters is they are on the same game layer (ex. 3: Enemy), and all have same names for functions to be called (ex. host.Controlled)
+        if ((collision.gameObject.tag == "Gorilla") && (!controlling)) 
         {
-            host = collision.gameObject.GetComponent<GorillaController>();
+            gorilla = collision.gameObject;
+            gorillaScript = collision.gameObject.GetComponent<GorillaController>();
             rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
             sprite.enabled = false; //turns off sprite
-            gameObject.transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+            gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             controlling = true; //condition tracking current state: parasite or controlling enemy
             collision.gameObject.tag = "Player";
+            gameObject.tag = "Untagged";
         }
-
+        if ((collision.gameObject.tag == "Cheetah") && (!controlling)) 
+        {
+            cheetah = collision.gameObject;
+            cheetahScript = collision.gameObject.GetComponent<CheetahController>();
+            rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
+            sprite.enabled = false; //turns off sprite
+            gameObject.transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+            controlling = true; //condition tracking current state: parasite or controlling enemy
+            collision.gameObject.tag = "Player";
+            gameObject.tag = "Untagged";
+        }
     }
 
 
@@ -53,14 +70,33 @@ public class PlayerController3 : MonoBehaviour
 
         if (controlling == true)
         {
-            host.Controlled(horizontal); //tells the controlled enemy to move
-            transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-            if (Input.GetKeyDown(KeyCode.E))
+            if (GameObject.FindWithTag("Player").name == gorillaName) 
             {
-                controlling = false;
-                transform.position = new Vector3(host.transform.position.x, (host.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
-                rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
-                sprite.enabled = true; //turns the sprite back on
+                gorillaScript.Controlled(horizontal); //tells the controlled enemy to move
+                transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    controlling = false;
+                    transform.position = new Vector3(gorilla.transform.position.x, (gorilla.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
+                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
+                    sprite.enabled = true; //turns the sprite back on
+                    gameObject.tag = "Player";
+                    Destroy(gorilla);
+                }
+            }
+            if (GameObject.FindWithTag("Player").name == cheetahName)
+            {
+                cheetahScript.Controlled(horizontal); //tells the controlled enemy to move
+                transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    controlling = false;
+                    transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
+                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
+                    sprite.enabled = true; //turns the sprite back on
+                    gameObject.tag = "Player";
+                    Destroy(cheetah);
+                }
             }
         }
         else

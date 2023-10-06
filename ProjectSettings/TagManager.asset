@@ -8,6 +8,8 @@ TagManager:
   - Background
   - Enemy
   - Wall
+  - Gorilla
+  - Cheetah
   layers:
   - Default
   - TransparentFX
