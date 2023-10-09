@@ -105,7 +105,7 @@ public class PlayerController3 : MonoBehaviour
 
             if (isGrounded) // grounded
             {
-                anim.speed = Mathf.Abs(rb.velocity.x * 0.7f);
+                anim.speed = Mathf.Abs(rb.velocity.x * 0.5f);
                 if (Input.GetAxis("Horizontal") != 0.0f)
                 {
                     rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed, rb.velocity.y);
