@@ -28,7 +28,8 @@ public class PlayerController3 : MonoBehaviour
     private bool fall;
     private bool squash;
     public Vector3 scale;
-
+    public AudioSource FlapAudioData;
+    public AudioSource BackgroundMusicData;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,6 +41,7 @@ public class PlayerController3 : MonoBehaviour
         anim = GetComponentsInChildren<Animator>()[1];
         anim_child = transform.Find("anim_child");
         jump = false;
+        BackgroundMusicData.Play();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -182,6 +184,7 @@ public class PlayerController3 : MonoBehaviour
                 //JUMP
                 isGrounded = false;
                 gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 9.0f, ForceMode2D.Impulse);
+                FlapAudioData.Play();
             }
         }
     }
