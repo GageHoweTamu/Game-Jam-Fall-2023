@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ambience
+  m_Name: Ambience/Music
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 17d1603f1b97444efa2e0bb8970db699
   m_Children: []
@@ -144,7 +144,7 @@ AudioMixerSnapshotController:
     137f1c171fdea4e028c499628b3ee27f: -2.6
     cae860082f5624795848b4e8b1598d3f: -9.4
     07e00a285bd7741c2bdf7fcb960000df: -4.5
-    1eaaf689d80774ddba0c6bdf0050a195: -12.7
+    1eaaf689d80774ddba0c6bdf0050a195: -11.594974
   m_TransitionOverrides: {}
 --- !u!244 &4503880397275369447
 AudioMixerEffectController:
@@ -166,7 +166,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Reverb
+  m_Name: ReverbLayer
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 2c1f21b8efbe845b6bc0a0936c3bf32a
   m_Children: []
@@ -241,7 +241,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sounds
+  m_Name: SoundEffects
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 0fb4d4b3cbff3467c96b497c50bc3d36
   m_Children: []
