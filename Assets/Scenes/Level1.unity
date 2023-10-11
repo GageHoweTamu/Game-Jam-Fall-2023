@@ -2513,7 +2513,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
+  m_Sprite: {fileID: 1486092838, guid: 83e4060440caeb941a8710204bf49dfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2533,8 +2533,8 @@ Transform:
   m_GameObject: {fileID: 1453141309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.35, y: -1.71, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 2}
+  m_LocalPosition: {x: -5.7225, y: -1.1948, z: 0}
+  m_LocalScale: {x: 0.2833131, y: 0.2240658, z: 2.159}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 653562877}
@@ -2560,6 +2560,10 @@ MonoBehaviour:
   cheetahScript: {fileID: 0}
   cheetahName: Cheetah
   controlling: 0
+  idleWalkThresholdSpeed: 0
+  walkRunThresholdSpeed: 0
+  walkProportionalAnimSpeed: 0
+  scale: {x: 0, y: 0, z: 0}
 --- !u!61 &1453141315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2592,18 +2596,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.058038056, y: -0.1999546}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 8, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.4}
+  m_Size: {x: 0.41607612, y: 0.0001}
   m_EdgeRadius: 0
 --- !u!114 &1453141316
 MonoBehaviour:
@@ -4168,6 +4172,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 3662435045152081358, guid: 1fc671f7989bc844789e0b8281b004b1, type: 3}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Gorilla
