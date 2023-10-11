@@ -62,6 +62,7 @@ public class PlayerController3 : MonoBehaviour
             controlling = true; //condition tracking current state: parasite or controlling enemy
             collision.gameObject.tag = "Player";
             gameObject.tag = "Untagged";
+            anim_child.gameObject.SetActive(false);
         }
         if ((collision.gameObject.tag == "Cheetah") && (!controlling)) 
         {
@@ -73,6 +74,7 @@ public class PlayerController3 : MonoBehaviour
             controlling = true; //condition tracking current state: parasite or controlling enemy
             collision.gameObject.tag = "Player";
             gameObject.tag = "Untagged";
+            anim_child.gameObject.SetActive(false);
         }
     }
 
@@ -92,9 +94,10 @@ public class PlayerController3 : MonoBehaviour
                     controlling = false;
                     transform.position = new Vector3(gorilla.transform.position.x, (gorilla.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
-                    sprite.enabled = true; //turns the sprite back on
+                    //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(gorilla);
+                    anim_child.gameObject.SetActive(true);
                 }
             }
             if (GameObject.FindWithTag("Player").name == cheetahName)
@@ -106,9 +109,10 @@ public class PlayerController3 : MonoBehaviour
                     controlling = false;
                     transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
-                    sprite.enabled = true; //turns the sprite back on
+                    //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(cheetah);
+                    anim_child.gameObject.SetActive(true);
                 }
             }
         }
