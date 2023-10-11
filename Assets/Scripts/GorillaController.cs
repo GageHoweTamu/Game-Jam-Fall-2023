@@ -38,7 +38,15 @@ public class GorillaController : MonoBehaviour
         }
         Debug.Log("Collision");
     }
-    
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag.Equals("Platform"))
+        {
+            isGrounded = false;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()

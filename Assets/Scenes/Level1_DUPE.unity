@@ -2584,6 +2584,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Parent Gorilla
@@ -6356,6 +6360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Gorilla
