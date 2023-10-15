@@ -28,8 +28,13 @@ public class PlayerController3 : MonoBehaviour
     private bool fall;
     private bool squash;
     public Vector3 scale;
+    //sound vars
     public AudioSource FlapAudioData;
     public AudioSource BackgroundMusicData;
+    //text vars
+    public GameObject controlTextPrefab;
+    public string TextToDisplay;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -54,6 +59,11 @@ public class PlayerController3 : MonoBehaviour
         }
         if ((collision.gameObject.tag == "Gorilla") && (!controlling)) 
         {
+            /*
+            TextToDisplay = "Press space to jump";
+            GameObject GorillaText = Instantiate(controlTextPrefab, gorilla.transform.position.x, gorilla.transform.position.y + 5, 0);
+            GorillaText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
+            */
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
             rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on

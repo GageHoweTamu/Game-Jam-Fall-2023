@@ -737,9 +737,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3197112133049583334, guid: adab2bd514c45de44b570e0a105ad096, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197112133049583334, guid: adab2bd514c45de44b570e0a105ad096, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197112133049583334, guid: adab2bd514c45de44b570e0a105ad096, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960784
+      objectReference: {fileID: 0}
     - target: {fileID: 5399286120224240573, guid: adab2bd514c45de44b570e0a105ad096, type: 3}
       propertyPath: m_Name
       value: Ceiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399286120224240573, guid: adab2bd514c45de44b570e0a105ad096, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1483,6 +1499,18 @@ PrefabInstance:
     - target: {fileID: 5006907242008021088, guid: 71e6ae82193bec64babc6393a90e4fb0, type: 3}
       propertyPath: m_Size.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986081040087615932, guid: 71e6ae82193bec64babc6393a90e4fb0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986081040087615932, guid: 71e6ae82193bec64babc6393a90e4fb0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986081040087615932, guid: 71e6ae82193bec64babc6393a90e4fb0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960784
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2275,6 +2303,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8050566043671578899, guid: 96769125dcc89e04da4d8911f53f6f4a, type: 3}
   m_PrefabInstance: {fileID: 126234078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &993070869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993070872}
+  - component: {fileID: 993070871}
+  - component: {fileID: 993070870}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &993070870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993070869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &993070871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993070869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &993070872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993070869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1019905709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2804,6 +2900,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778869335913857653, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778869335913857653, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778869335913857653, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3159,7 +3267,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3953,7 +4061,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 0d878a76aff64f9458ec2cb2e916627a, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4059,6 +4167,8 @@ MonoBehaviour:
   scale: {x: 0.3, y: 0.3, z: 0.3}
   FlapAudioData: {fileID: 1890009152}
   BackgroundMusicData: {fileID: 1216566342}
+  controlTextPrefab: {fileID: 0}
+  TextToDisplay: 
 --- !u!61 &1453141315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6299,6 +6409,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1393428941}
     m_Modifications:
+    - target: {fileID: 3731508654288391723, guid: 96769125dcc89e04da4d8911f53f6f4a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731508654288391723, guid: 96769125dcc89e04da4d8911f53f6f4a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960784
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731508654288391723, guid: 96769125dcc89e04da4d8911f53f6f4a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960784
+      objectReference: {fileID: 0}
     - target: {fileID: 6993353872880050355, guid: 96769125dcc89e04da4d8911f53f6f4a, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -6451,3 +6573,4 @@ SceneRoots:
   - {fileID: 1768096345}
   - {fileID: 1890009153}
   - {fileID: 1216566343}
+  - {fileID: 993070872}
