@@ -32,8 +32,8 @@ public class PlayerController3 : MonoBehaviour
     public AudioSource FlapAudioData;
     public AudioSource BackgroundMusicData;
     //text vars
-    public GameObject controlTextPrefab;
-    public string TextToDisplay;
+    public GameObject gorillaControlPopUp;
+   
 
 
     // Start is called before the first frame update
@@ -47,6 +47,7 @@ public class PlayerController3 : MonoBehaviour
         anim_child = transform.Find("anim_child");
         jump = false;
         BackgroundMusicData.Play();
+        gorillaControlPopUp.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -73,6 +74,7 @@ public class PlayerController3 : MonoBehaviour
             collision.gameObject.tag = "Player";
             gameObject.tag = "Untagged";
             anim_child.gameObject.SetActive(false);
+            gorillaControlPopUp.SetActive(true);
         }
         if ((collision.gameObject.tag == "Cheetah") && (!controlling)) 
         {

@@ -69,7 +69,7 @@ public class GorillaController : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
         {
           gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
-            attacking = false;
+            
         }
 
         Flip();
@@ -83,7 +83,12 @@ public class GorillaController : MonoBehaviour
             isGrounded = false;
             Debug.Log(Time.time - timer);
             jpower = Time.time - timer;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
+            if (jpower > 1)
+            {
+                jpower = 1;
+            }
+                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
+            
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -91,12 +96,20 @@ public class GorillaController : MonoBehaviour
             {
                 attacking = true;
                 rb.AddForce(Vector2.right * 3, ForceMode2D.Impulse); //gorilla attack right
+                Invoke("StopAttack", 1);
             }
             if (!isFacingRight)
             {
+                attacking = true;
                 rb.AddForce(Vector2.left * 3, ForceMode2D.Impulse); //gorilla attack left
+                Invoke("StopAttack", 1);
             }
         }
+    }
+
+    private void StopAttack()
+    {
+        attacking = false;
     }
     private void Flip()
     {

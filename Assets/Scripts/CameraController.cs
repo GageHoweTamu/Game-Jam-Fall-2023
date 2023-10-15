@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Room number is: " + roomNumber);
+       
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
 
         // Check if in room 8 and adjust camera size
