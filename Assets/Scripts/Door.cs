@@ -7,31 +7,49 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform previousRoom;
     [SerializeField] private Transform nextRoom;
     [SerializeField] private CameraController cam;
-    public int roomnumber = 1;
+    [SerializeField] private int doornumber;
+    [SerializeField] private bool doortype; //true means horizontal & false means vertical
     private bool direction = true;
+    public bool changingcamerasize = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            if (collision.transform.position.x < transform.position.x)
+            if (collision.transform.position.x < transform.position.x && doortype)
             {
                 cam.MoveToNewRoom(nextRoom);
                 direction = true;
-                cam.SetRoomNumber(direction); // Update the room number in the camera controller
             }
-            else
+            else if (collision.transform.position.x > transform.position.x && doortype)
             {
                 cam.MoveToNewRoom(previousRoom);
                 direction = false;
-                cam.SetRoomNumber(direction); // Update the room number in the camera controller
+            }
+            else if (collision.transform.position.y < transform.position.y && !doortype)
+            {
+                cam.MoveToNewRoom(nextRoom);
+                direction = true;
+            }
+            else if (collision.transform.position.y > transform.position.y && !doortype)
+            {
+                cam.MoveToNewRoom(previousRoom);
+                direction = false;
             }
 
-            // Check for room 8 after updating roomnumber
-            if (roomnumber == 8)
+            // Check for door 7 after updating roomnumber
+            if (doornumber == 7)
             {
-                cam.ChangeCameraSize(roomnumber);
+                changingcamerasize = true;
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (changingcamerasize == true)
+        {
+            changingcamerasize = cam.ChangeCameraSize(doornumber,direction);
         }
     }
 }
