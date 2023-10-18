@@ -94,6 +94,18 @@ public class PlayerController3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f);
+        UnityEngine.Debug.DrawRay(transform.position, Vector2.down * 10f, Color.red);
+        //UnityEngine.Debug.Log("casting ray");
+
+        if (groundHit.collider != null)
+        { isGrounded = true; 
+        //UnityEngine.Debug.Log("grounded"); }
+        else { isGrounded = false; 
+        //UnityEngine.Debug.Log("not grounded"); }
+
+
+
         horizontal = Input.GetAxisRaw("Horizontal");
         if (controlling == true)
         {
