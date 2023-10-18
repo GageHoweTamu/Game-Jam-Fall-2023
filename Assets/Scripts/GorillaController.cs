@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GorillaController : MonoBehaviour
@@ -10,11 +11,15 @@ public class GorillaController : MonoBehaviour
     private float jpower;
     private float timer;
     private float horizontal;
-    private bool controlled;
+    public bool controlled;
     private bool isFacingRight = true;
     private bool attacking = false;
-    private int interval = 0; //not important
-    private int movementFlipper = 1; //not important
+    GameObject player;
+    public float trackingRangeX = 70f;
+    public float trackingRangeY = 40f;
+    public float detectingRangeY = 5f;
+    public float attackRange = 2.5f;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -53,17 +58,30 @@ public class GorillaController : MonoBehaviour
     {
         if (!controlled) //put all enemy ai behavior in here
         {
-            if (interval % 20 == 0)
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (!attacking)
             {
-                movementFlipper *= -1;
+                Vector2 target = new Vector2(player.transform.position.x, rb.position.y);
+                Vector2 newPos = Vector2.MoveTowards(rb.position, target, movementSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(newPos);
             }
-            gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
-            ++interval;
+            //jump code - doesn't look or feel good
+            if (Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
+            {
+                rb.AddForce(Vector3.up * 4.5f, ForceMode2D.Impulse);
+                isGrounded = false;
+            }
+            //attack code - attack() wasnt working but works now i guess
+            if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded)
+            {
+                Attack();
+            }
         }
     }
 
-    public void Controlled(float horizontal) //all controlled functions need to set controlled to true to stop ai behavior
+    public void Controlled() //all controlled functions need to set controlled to true to stop ai behavior
     {
+        rb.gravityScale = 1;
         horizontal = Input.GetAxisRaw("Horizontal");
         controlled = true; //no need to set to false after being controlled as enemy will die when parasite leaves
         if (Input.GetAxis("Horizontal") != 0)
@@ -87,10 +105,18 @@ public class GorillaController : MonoBehaviour
             {
                 jpower = 1;
             }
-                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
+            rb.AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
             
         }
         if (Input.GetMouseButtonDown(1))
+        {
+            Attack();
+        }
+    }
+
+    public void Attack()
+    {
+        if (!attacking)
         {
             if (isFacingRight)
             {

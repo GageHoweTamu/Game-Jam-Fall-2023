@@ -99,7 +99,7 @@ public class PlayerController3 : MonoBehaviour
         {
             if (GameObject.FindWithTag("Player").name == gorillaName) 
             {
-                gorillaScript.Controlled(horizontal); //tells the controlled enemy to move
+                gorillaScript.Controlled(); //tells the controlled enemy to move
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -114,7 +114,7 @@ public class PlayerController3 : MonoBehaviour
             }
             if (GameObject.FindWithTag("Player").name == cheetahName)
             {
-                cheetahScript.Controlled(horizontal); //tells the controlled enemy to move
+                cheetahScript.Controlled(); //tells the controlled enemy to move
                 transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetKeyDown(KeyCode.E))
                 {

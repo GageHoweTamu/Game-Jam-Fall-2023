@@ -46,7 +46,7 @@ public class CheetahController : MonoBehaviour
         }
     }
 
-    public void Controlled(float horizontal) //all controlled functions need to set controlled to true to stop ai behavior
+    public void Controlled() //all controlled functions need to set controlled to true to stop ai behavior
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         controlled = true; //no need to set to false after being controlled as enemy will die when parasite leaves

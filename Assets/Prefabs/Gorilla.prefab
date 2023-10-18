@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4549865610876193523}
   m_Layer: 0
   m_Name: Gorilla
-  m_TagString: Enemy
+  m_TagString: Gorilla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +205,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
+  isGrounded: 0
+  controlled: 0
+  trackingRangeX: 70
+  trackingRangeY: 40
+  detectingRangeY: 1
+  attackRange: 2.5
 --- !u!114 &4549865610876193523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,3 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8489944732487559265}
+  bulletPrefab: {fileID: 0}
+  shockwave1: {x: 0, y: 0, z: 0}
+  shockwave2: {x: 0, y: 0, z: 0}
+  shock1: {fileID: 0}
+  shock2: {fileID: 0}
