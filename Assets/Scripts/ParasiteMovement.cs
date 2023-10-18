@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController3 : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class PlayerController3 : MonoBehaviour
     public AudioSource BackgroundMusicData;
     //text vars
     public GameObject gorillaControlPopUp;
+    public Canvas pauseMenu;
+
+
    
 
 
@@ -48,6 +52,9 @@ public class PlayerController3 : MonoBehaviour
         jump = false;
         BackgroundMusicData.Play();
         gorillaControlPopUp.SetActive(false);
+    
+       
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -216,4 +223,5 @@ public class PlayerController3 : MonoBehaviour
         }
     }
 
+  
 }
