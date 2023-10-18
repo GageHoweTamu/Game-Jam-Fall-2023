@@ -100,9 +100,11 @@ public class PlayerController3 : MonoBehaviour
 
         if (groundHit.collider != null)
         { isGrounded = true; 
-        //UnityEngine.Debug.Log("grounded"); }
+        //UnityEngine.Debug.Log("grounded"); 
+        }
         else { isGrounded = false; 
-        //UnityEngine.Debug.Log("not grounded"); }
+        //UnityEngine.Debug.Log("not grounded"); 
+        }
 
 
 
@@ -229,3 +231,4 @@ public class PlayerController3 : MonoBehaviour
     }
 
 }
+    
