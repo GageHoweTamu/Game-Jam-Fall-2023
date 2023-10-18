@@ -2904,6 +2904,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 820372315}
     - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: bigdoor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
       propertyPath: nextRoom
       value: 
       objectReference: {fileID: 1708478254}
@@ -6317,6 +6321,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 820372315}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: bigdoor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
       propertyPath: doortype
       value: 1

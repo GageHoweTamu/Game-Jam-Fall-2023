@@ -24,9 +24,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        //transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, currentPosY, transform.position.z), ref velocity, speed);
-
     }
 
     public void MoveToNewRoom(Transform _newRoom)
@@ -36,11 +34,10 @@ public class CameraController : MonoBehaviour
     }
 
 
-    public bool ChangeCameraSize(int newRoomNumber, bool direction)
+    public bool ChangeCameraSize(bool big)
     {
-        if (newRoomNumber == 7 && direction == true)
+        if (big == true)
         {
-            //mainCamera.orthographicSize = 8.0f;
             mainCamera.orthographicSize = Mathf.SmoothDamp(mainCamera.orthographicSize, 8.0f, ref zoomspeed, .5f);
             if (mainCamera.orthographicSize == 8.0f)
             {
@@ -50,7 +47,6 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            //mainCamera.orthographicSize = 4.0f;
             mainCamera.orthographicSize = Mathf.SmoothDamp(mainCamera.orthographicSize, 4.0f, ref zoomspeed, .5f);
             if (mainCamera.orthographicSize == 4.0f)
             {
