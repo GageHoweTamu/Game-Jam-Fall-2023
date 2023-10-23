@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController3 : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2;
-    private bool isGrounded;
+    public bool isGrounded;
     private float horizontal;
     private bool isFacingRight = true;
     public GameObject gorilla;
@@ -59,12 +59,6 @@ public class PlayerController3 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (collision.transform.tag.Equals("Platform"))
-        {
-            isGrounded = true;
-
-        }
         if ((collision.gameObject.tag == "Gorilla") && (!controlling)) 
         {
             /*
@@ -74,7 +68,7 @@ public class PlayerController3 : MonoBehaviour
             */
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
-            rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
+            rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions until turned back on
             sprite.enabled = false; //turns off sprite
             gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             controlling = true; //condition tracking current state: parasite or controlling enemy
@@ -101,16 +95,17 @@ public class PlayerController3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f);
-        UnityEngine.Debug.DrawRay(transform.position, Vector2.down * 10f, Color.red);
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(transform.position, Vector2.down * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
-
         if (groundHit.collider != null)
-        { isGrounded = true; 
-        //UnityEngine.Debug.Log("grounded"); 
+        {
+            isGrounded = true;
         }
-        else { isGrounded = false; 
-        //UnityEngine.Debug.Log("not grounded"); 
+        else 
+        { 
+            isGrounded = false; 
+            //UnityEngine.Debug.Log("not grounded"); 
         }
 
 

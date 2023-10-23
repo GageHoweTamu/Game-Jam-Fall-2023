@@ -13,7 +13,7 @@ public class GorillaController : MonoBehaviour
     private float horizontal;
     public bool controlled;
     private bool isFacingRight = true;
-    private bool attacking = false;
+    public bool attacking;
     GameObject player;
     public float trackingRangeX = 70f;
     public float trackingRangeY = 40f;
@@ -25,6 +25,7 @@ public class GorillaController : MonoBehaviour
     {
         isGrounded = false;
         controlled = false;
+        attacking = false;
         Debug.Log("Start");
         rb = GetComponent<Rigidbody2D>();
         rb.mass = 0.5f;
@@ -32,11 +33,6 @@ public class GorillaController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag.Equals("Platform"))
-        {
-            isGrounded = true;
-            Debug.Log("Grounded");
-        }
         if (collision.transform.tag.Equals("Wall") && attacking)
         {
             Destroy(collision.gameObject);
@@ -44,44 +40,61 @@ public class GorillaController : MonoBehaviour
         Debug.Log("Collision");
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.transform.tag.Equals("Platform"))
+        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 0.35f);
+        Debug.DrawRay(transform.position, Vector2.down * 0.35f, Color.red);
+        //UnityEngine.Debug.Log("casting ray");
+        if (groundHit.collider != null)
+        {
+            isGrounded = true;
+            //Debug.Log(groundHit.collider.name);
+        }
+        else
         {
             isGrounded = false;
+            //UnityEngine.Debug.Log("not grounded"); 
         }
     }
-
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!controlled) //put all enemy ai behavior in here
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            if (!attacking)
+            if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
             {
-                Vector2 target = new Vector2(player.transform.position.x, rb.position.y);
-                Vector2 newPos = Vector2.MoveTowards(rb.position, target, movementSpeed * Time.fixedDeltaTime);
-                rb.MovePosition(newPos);
-            }
-            //jump code - doesn't look or feel good
-            if (Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
-            {
-                rb.AddForce(Vector3.up * 4.5f, ForceMode2D.Impulse);
-                isGrounded = false;
-            }
-            //attack code - attack() wasnt working but works now i guess
-            if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded)
-            {
-                Attack();
+                AIFlip(player.transform.position.x);
+                //jump code
+                if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
+                {
+                    //change the value below to change jump height
+                    rb.AddForce(Vector3.up * 6f, ForceMode2D.Impulse);
+                    isGrounded = false;
+                }
+                //attack code
+                if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
+                {
+                    Attack();
+                }
+                //move code
+                else
+                {
+                    if (isFacingRight)
+                    {
+                        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+                    }
+                    else
+                    {
+                        transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+                    }
+                }
             }
         }
     }
 
     public void Controlled() //all controlled functions need to set controlled to true to stop ai behavior
     {
-        rb.gravityScale = 1;
         horizontal = Input.GetAxisRaw("Horizontal");
         controlled = true; //no need to set to false after being controlled as enemy will die when parasite leaves
         if (Input.GetAxis("Horizontal") != 0)
@@ -140,6 +153,18 @@ public class GorillaController : MonoBehaviour
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
+
+    //flip, but works while not controlled
+    private void AIFlip(float playerX)
+    {
+        if (isFacingRight && playerX < rb.position.x || !isFacingRight && playerX > rb.position.x)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
