@@ -6,10 +6,10 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private Transform previousRoom;
     [SerializeField] private Transform nextRoom;
+    [SerializeField] public Transform partnerDoor;
     [SerializeField] private CameraController cam;
-    [SerializeField] private bool bigdoor;
+    [SerializeField] private bool bigdoor; //true means door goes to big room
     [SerializeField] private bool doortype; //true means horizontal & false means vertical
-    public bool changingcamerasize = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,16 +34,15 @@ public class Door : MonoBehaviour
 
             if (bigdoor == true)
             {
-                changingcamerasize = true;
+                cam.ChangeCamSize(8.0f,true);
             }
-        }
-    }
+            else
+            {
+                cam.ChangeCamSize(4.0f,false);
+            }
 
-    private void Update()
-    {
-        if (changingcamerasize == true)
-        {
-            changingcamerasize = cam.ChangeCameraSize(bigdoor);
+            GetComponent<BoxCollider2D>().enabled = false;
+            partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 }
