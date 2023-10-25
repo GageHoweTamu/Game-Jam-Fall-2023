@@ -63,6 +63,10 @@ public class PlayerController3 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag.Equals("Platform"))
+        {
+            leaping = false;
+        }
         if ((collision.gameObject.tag == "Gorilla") && (!controlling) && leaping) 
         {
             /*
@@ -102,13 +106,14 @@ public class PlayerController3 : MonoBehaviour
     void Update()
     {
         //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
-        RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(transform.position, Vector2.down * 0.5f, Color.red);
+        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
+        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
-        if (groundHit.collider != null)
+        if (groundHitLeft.collider != null || groundHitRight.collider != null)
         {
             isGrounded = true;
-            leaping = false;
         }
         else 
         { 
