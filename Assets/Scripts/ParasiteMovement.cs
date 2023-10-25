@@ -1,3 +1,4 @@
+using Pathfinding.Legacy;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,6 +18,7 @@ public class PlayerController3 : MonoBehaviour
     public CheetahController cheetahScript;
     public string cheetahName = "Cheetah";
     public bool controlling;
+    public bool leaping;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     //animator vars
@@ -45,6 +47,7 @@ public class PlayerController3 : MonoBehaviour
     {
         isGrounded = false;
         controlling = false;
+        leaping = false;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponentsInChildren<Animator>()[1];
@@ -59,7 +62,7 @@ public class PlayerController3 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag == "Gorilla") && (!controlling)) 
+        if ((collision.gameObject.tag == "Gorilla") && (!controlling) && leaping) 
         {
             /*
             TextToDisplay = "Press space to jump";
@@ -72,12 +75,13 @@ public class PlayerController3 : MonoBehaviour
             sprite.enabled = false; //turns off sprite
             gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             controlling = true; //condition tracking current state: parasite or controlling enemy
+            leaping = false;
             collision.gameObject.tag = "Player";
             gameObject.tag = "Untagged";
             anim_child.gameObject.SetActive(false);
             gorillaControlPopUp.SetActive(true);
         }
-        if ((collision.gameObject.tag == "Cheetah") && (!controlling)) 
+        if ((collision.gameObject.tag == "Cheetah") && (!controlling) && leaping) 
         {
             cheetah = collision.gameObject;
             cheetahScript = collision.gameObject.GetComponent<CheetahController>();
@@ -85,6 +89,7 @@ public class PlayerController3 : MonoBehaviour
             sprite.enabled = false; //turns off sprite
             gameObject.transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             controlling = true; //condition tracking current state: parasite or controlling enemy
+            leaping = false;
             collision.gameObject.tag = "Player";
             gameObject.tag = "Untagged";
             anim_child.gameObject.SetActive(false);
@@ -95,12 +100,14 @@ public class PlayerController3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
         RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
         UnityEngine.Debug.DrawRay(transform.position, Vector2.down * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
         if (groundHit.collider != null)
         {
             isGrounded = true;
+            leaping = false;
         }
         else 
         { 
@@ -111,17 +118,27 @@ public class PlayerController3 : MonoBehaviour
 
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        Flip();
         if (controlling == true)
         {
             if (GameObject.FindWithTag("Player").name == gorillaName) 
             {
                 gorillaScript.Controlled(); //tells the controlled enemy to move
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetMouseButtonDown(1) && !leaping)
                 {
                     controlling = false;
-                    transform.position = new Vector3(gorilla.transform.position.x, (gorilla.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
+                    leaping = true;
+                    transform.position = new Vector3(gorilla.transform.position.x, (gorilla.transform.position.y), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
+                    if (isFacingRight)
+                    {
+                        rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                    }
                     //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(gorilla);
@@ -132,11 +149,20 @@ public class PlayerController3 : MonoBehaviour
             {
                 cheetahScript.Controlled(); //tells the controlled enemy to move
                 transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetMouseButtonDown(1) && !leaping)
                 {
                     controlling = false;
-                    transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y + 2), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
+                    leaping = true;
+                    transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
+                    if (isFacingRight)
+                    {
+                        rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                    }
                     //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(cheetah);
@@ -146,7 +172,6 @@ public class PlayerController3 : MonoBehaviour
         }
         else
         {
-            Flip();
             //ANIMATION CONTROLS
             anim.SetBool("grounded", isGrounded);
             jump = !isGrounded && rb.velocity.y > 0;
@@ -217,6 +242,19 @@ public class PlayerController3 : MonoBehaviour
                 isGrounded = false;
                 gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 9.0f, ForceMode2D.Impulse);
                 FlapAudioData.Play();
+            }
+
+            if (Input.GetMouseButtonDown(1) && isGrounded && !leaping)
+            {
+                leaping = true;
+                if (isFacingRight)
+                {
+                    rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                }
+                else
+                {
+                    rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                }
             }
         }
     }

@@ -42,6 +42,7 @@ public class GorillaController : MonoBehaviour
 
     private void Update()
     {
+        //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
         RaycastHit2D groundHit = Physics2D.Raycast(transform.position, Vector2.down, 0.35f);
         Debug.DrawRay(transform.position, Vector2.down * 0.35f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
@@ -121,7 +122,7 @@ public class GorillaController : MonoBehaviour
             rb.AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
             
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             Attack();
         }
