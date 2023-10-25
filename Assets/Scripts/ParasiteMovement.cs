@@ -55,6 +55,7 @@ public class PlayerController3 : MonoBehaviour
         jump = false;
         BackgroundMusicData.Play();
         gorillaControlPopUp.SetActive(false);
+        pauseMenu.enabled = false;
     
        
 
