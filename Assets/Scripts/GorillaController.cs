@@ -42,16 +42,16 @@ public class GorillaController : MonoBehaviour
 
     private void Update()
     {
-        //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
-        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z), Vector2.down, 0.35f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z), Vector2.down * 0.35f, Color.red);
-        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z), Vector2.down, 0.35f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z), Vector2.down * 0.35f, Color.red);
+        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
+        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
+        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
-        if (groundHitRight.collider != null || groundHitLeft.collider != null)
+        if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
         {
             isGrounded = true;
-            //Debug.Log(groundHit.collider.name);
         }
         else
         {

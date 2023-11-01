@@ -66,7 +66,14 @@ public class PlayerController3 : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Platform"))
         {
-            leaping = false;
+            RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+            RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+            RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+            if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
+            {
+                leaping = false;
+                UnityEngine.Debug.Log("hit ground, done leaping");
+            }
         }
         if ((collision.gameObject.tag == "Gorilla") && (!controlling) && leaping) 
         {
@@ -109,10 +116,12 @@ public class PlayerController3 : MonoBehaviour
         //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
         RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
         UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
+        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
         RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
         UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
-        if (groundHitLeft.collider != null || groundHitRight.collider != null)
+        if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
         {
             isGrounded = true;
         }
@@ -142,7 +151,8 @@ public class PlayerController3 : MonoBehaviour
                 {
                     controlling = false;
                     leaping = true;
-                    transform.position = new Vector3(gorilla.transform.position.x, (gorilla.transform.position.y + 3), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
+                    UnityEngine.Debug.Log("leaping from gorilla");
+                    transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y + 1.5f, 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
                     if (isFacingRight)
                     {
@@ -152,8 +162,6 @@ public class PlayerController3 : MonoBehaviour
                     {
                         rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
                     }
-                    
-
                     //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(gorilla);
@@ -163,14 +171,13 @@ public class PlayerController3 : MonoBehaviour
             if (nameAry[0] == cheetahName)
             {
                 cheetahScript.Controlled(); //tells the controlled enemy to move
-                transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+                transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y + 1.5f, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetMouseButtonDown(1) && !leaping)
                 {
                     controlling = false;
-                    transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y + 3), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
-                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
                     leaping = true;
-
+                    transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
+                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
                     if (isFacingRight)
                     {
                         rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
