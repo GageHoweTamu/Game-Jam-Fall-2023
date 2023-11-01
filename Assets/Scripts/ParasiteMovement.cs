@@ -100,6 +100,10 @@ public class PlayerController3 : MonoBehaviour
             gameObject.tag = "Untagged";
             anim_child.gameObject.SetActive(false);
         }
+        if(collision.gameObject.tag == "Spike")
+        {
+
+        }
     }
 
 
