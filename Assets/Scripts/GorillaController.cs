@@ -116,7 +116,7 @@ public class GorillaController : MonoBehaviour
 
             isGrounded = false;
             Debug.Log(Time.time - timer);
-            jpower = Time.time - timer;
+            jpower = (Time.time - timer)*2;
             if (jpower > 1)
             {
                 jpower = 1;

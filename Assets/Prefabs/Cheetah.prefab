@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2592577511650064447}
   - component: {fileID: 8045785328065525866}
   - component: {fileID: 6058772079892549414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cheetah
   m_TagString: Cheetah
   m_Icon: {fileID: 0}
@@ -172,3 +172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
+  isGrounded: 0
+  controlled: 0
+  attacking: 0
+  trackingRangeX: 70
+  trackingRangeY: 40
+  detectingRangeY: 5
+  attackRange: 2.5

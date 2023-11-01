@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8489944732487559265}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2195258832477615429}
   - component: {fileID: 1942298735163631577}
   - component: {fileID: 4549865610876193523}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gorilla
   m_TagString: Gorilla
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -207,6 +207,7 @@ MonoBehaviour:
   movementSpeed: 2
   isGrounded: 0
   controlled: 0
+  attacking: 0
   trackingRangeX: 70
   trackingRangeY: 40
   detectingRangeY: 1
