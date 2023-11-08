@@ -22,6 +22,9 @@ public class PlayerController3 : MonoBehaviour
     public bool leaping;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
+    public Rigidbody2D hostRB;
+    [SerializeField] private bool normalGrav;
+    private Vector2 direction;
     //animator vars
     private Animator anim;
     private Transform anim_child;
@@ -61,8 +64,7 @@ public class PlayerController3 : MonoBehaviour
         BackgroundMusicData.Play();
         gorillaControlPopUp.SetActive(false);
         pauseMenu.enabled = false;
-
-    
+        normalGrav = true;
        
 
     }
@@ -71,9 +73,20 @@ public class PlayerController3 : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Platform"))
         {
-            RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-            RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-            RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
+            if (normalGrav)
+            {
+                direction = Vector2.down;
+            }
+            else
+            {
+                direction = Vector2.up;
+            }
+            RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction, 0.5f);
+            UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+            RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction, 0.5f);
+            UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+            RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction, 0.5f);
+            UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
             if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
             {
                 leaping = false;
@@ -89,6 +102,7 @@ public class PlayerController3 : MonoBehaviour
             */
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
+            hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
             rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions until turned back on
             sprite.enabled = false; //turns off sprite
             gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
@@ -103,6 +117,7 @@ public class PlayerController3 : MonoBehaviour
         {
             cheetah = collision.gameObject;
             cheetahScript = collision.gameObject.GetComponent<CheetahController>();
+            hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
             rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
             sprite.enabled = false; //turns off sprite
             gameObject.transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
@@ -122,15 +137,20 @@ public class PlayerController3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
-        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        //UnityEngine.Debug.Log("casting ray");
+        if (normalGrav)
+        {
+            direction = Vector2.down;
+        }
+        else
+        {
+            direction = Vector2.up;
+        }
+        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
         if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
         {
             isGrounded = true;
@@ -155,22 +175,43 @@ public class PlayerController3 : MonoBehaviour
             nameAry = GameObject.FindWithTag("Player").name.Split(" ");
             if (nameAry[0] == gorillaName) 
             {
-                gorillaScript.Controlled(); //tells the controlled enemy to move
+                gorillaScript.Controlled(normalGrav); //tells the controlled enemy to move
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetMouseButtonDown(1) && !leaping)
                 {
                     controlling = false;
                     leaping = true;
                     UnityEngine.Debug.Log("leaping from gorilla");
-                    transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y + 1.5f, 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
-                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
-                    if (isFacingRight)
+                    if (normalGrav)
                     {
-                        rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                        transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y + 1.5f, 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     }
                     else
                     {
-                        rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                        transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y - 1.5f, 0);
+                    }
+                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
+                    if (isFacingRight)
+                    {
+                        if (normalGrav)
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                        }
+                        else
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
+                        }
+                    }
+                    else
+                    {
+                        if (normalGrav)
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                        }
+                        else
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
+                        }
                     }
                     //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
@@ -180,21 +221,42 @@ public class PlayerController3 : MonoBehaviour
             }
             if (nameAry[0] == cheetahName)
             {
-                cheetahScript.Controlled(); //tells the controlled enemy to move
-                transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y + 1.5f, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+                cheetahScript.Controlled(normalGrav); //tells the controlled enemy to move
+                transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetMouseButtonDown(1) && !leaping)
                 {
                     controlling = false;
                     leaping = true;
-                    transform.position = new Vector3(cheetah.transform.position.x, (cheetah.transform.position.y), 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
-                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
-                    if (isFacingRight)
+                    if (normalGrav)
                     {
-                        rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                        transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y + 1.5f, 0); //moves player away from other entities, can be replaced with whatever movement we want the parasite to do when leaving an enemy
                     }
                     else
                     {
-                        rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                        transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y - 1.5f, 0);
+                    }
+                    rb.simulated = true; //turns the rigidbody back on so its effected by gravity and collisions
+                    if (isFacingRight)
+                    {
+                        if (normalGrav)
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                        }
+                        else
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
+                        }
+                    }
+                    else
+                    {
+                        if (normalGrav)
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                        }
+                        else
+                        {
+                            rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
+                        }
                     }
                     //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
@@ -273,7 +335,14 @@ public class PlayerController3 : MonoBehaviour
             {
                 //JUMP
                 isGrounded = false;
-                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 9.0f, ForceMode2D.Impulse);
+                if (normalGrav)
+                {
+                    rb.AddForce(Vector3.up * 9.0f, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rb.AddForce(Vector3.down * 9.0f, ForceMode2D.Impulse);
+                }
                 FlapAudioData.Play();
             }
 
@@ -282,11 +351,25 @@ public class PlayerController3 : MonoBehaviour
                 leaping = true;
                 if (isFacingRight)
                 {
-                    rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                    if (normalGrav)
+                    {
+                        rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
+                    }
                 }
                 else
                 {
-                    rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                    if (normalGrav)
+                    {
+                        rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(movementSpeed * -2.0f, movementSpeed * -1f);
+                    }
                 }
             }
         }
@@ -313,6 +396,33 @@ public class PlayerController3 : MonoBehaviour
     {
         x_pos = doorpos.position.x;
         y_pos = doorpos.position.y;
+    }
+    public void GravityFlip()
+    {
+        normalGrav = !normalGrav;
+        Vector3 localScalePlayer = transform.localScale;
+        localScalePlayer.y *= -1f;
+        transform.localScale = localScalePlayer;
+        rb.gravityScale *= -1f;
+        if (gorilla != null)
+        {
+            Vector3 localScaleGorilla = gorilla.transform.localScale;
+            localScaleGorilla.y *= -1f;
+            gorilla.transform.localScale = localScaleGorilla;
+            hostRB.gravityScale *= -1f;
+        }
+        else if (cheetah != null)
+        {
+            Vector3 localScaleCheetah = cheetah.transform.localScale;
+            localScaleCheetah.y *= -1f;
+            cheetah.transform.localScale = localScaleCheetah;
+            hostRB.gravityScale *= -1f;
+        }
+    }
+
+    public bool GetNormalGrav()
+    {
+        return normalGrav;
     }
 
 }
