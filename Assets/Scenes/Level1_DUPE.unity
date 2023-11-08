@@ -7409,6 +7409,8 @@ MonoBehaviour:
   cheetahName: Cheetah
   controlling: 0
   leaping: 0
+  hostRB: {fileID: 0}
+  normalGrav: 0
   idleWalkThresholdSpeed: 0.2
   walkRunThresholdSpeed: 3
   walkProportionalAnimSpeed: 0.4

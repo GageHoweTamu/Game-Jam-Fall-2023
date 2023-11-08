@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         if (controlling == true)
         {
-            host.Controlled(); //tells the controlled enemy to move
+            //host.Controlled(); //tells the controlled enemy to move
             transform.position = new Vector3(host.transform.position.x, host.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
             if (Input.GetKeyDown(KeyCode.E))
             {

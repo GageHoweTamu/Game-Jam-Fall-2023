@@ -11,6 +11,7 @@ TagManager:
   - Gorilla
   - Cheetah
   - Spike
+  - GravityFlipper
   layers:
   - Default
   - TransparentFX
