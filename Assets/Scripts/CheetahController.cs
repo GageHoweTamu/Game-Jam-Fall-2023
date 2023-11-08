@@ -15,10 +15,12 @@ public class CheetahController : MonoBehaviour
     private bool isFacingRight = true;
     public bool attacking;
     GameObject player;
+    private PlayerController3 parasiteScript;
     public float trackingRangeX = 70f;
     public float trackingRangeY = 40f;
     public float detectingRangeY = 5f;
     public float attackRange = 2.5f;
+    private Vector2 direction;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,25 +31,31 @@ public class CheetahController : MonoBehaviour
         Debug.Log("Start");
         rb = GetComponent<Rigidbody2D>();
         rb.mass = 0.5f;
+        player = GameObject.Find("PlayerParasite");
+        parasiteScript = player.gameObject.GetComponent<PlayerController3>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag.Equals("Wall") && attacking)
-        {
-            Destroy(collision.gameObject);
-        }
-        Debug.Log("Collision");
+
     }
 
     private void Update()
     {
-        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
+        if (parasiteScript.GetNormalGrav())
+        {
+            direction = Vector2.down;
+        }
+        else
+        {
+            direction = Vector2.up;
+        }
+        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
         if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
         {
@@ -64,7 +72,6 @@ public class CheetahController : MonoBehaviour
     {
         if (!controlled) //put all enemy ai behavior in here
         {
-            player = GameObject.FindGameObjectWithTag("Player");
             if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
             {
                 AIFlip(player.transform.position.x);
@@ -72,7 +79,7 @@ public class CheetahController : MonoBehaviour
                 if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
                 {
                     //change the value below to change jump height
-                    rb.AddForce(Vector3.up * 6f, ForceMode2D.Impulse);
+                    rb.AddForce(direction * 6f, ForceMode2D.Impulse);
                     isGrounded = false;
                 }
                 //attack code
@@ -96,10 +103,18 @@ public class CheetahController : MonoBehaviour
         }
     }
 
-    public void Controlled() //all controlled functions need to set controlled to true to stop ai behavior
+    public void Controlled(bool normalGrav) //all controlled functions need to set controlled to true to stop ai behavior
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         controlled = true; //no need to set to false after being controlled as enemy will die when parasite leaves
+        if (normalGrav)
+        {
+            direction = Vector2.up;
+        }
+        else
+        {
+            direction = Vector2.down;
+        }
         if (Input.GetAxis("Horizontal") != 0)
         {
           gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
@@ -115,7 +130,7 @@ public class CheetahController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * 3, ForceMode2D.Impulse);
+            rb.AddForce(direction * 3, ForceMode2D.Impulse);
         }
     }
 

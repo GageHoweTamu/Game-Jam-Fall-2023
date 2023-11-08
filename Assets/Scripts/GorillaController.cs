@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GorillaController : MonoBehaviour
@@ -15,10 +16,12 @@ public class GorillaController : MonoBehaviour
     private bool isFacingRight = true;
     public bool attacking;
     GameObject player;
+    private PlayerController3 parasiteScript;
     public float trackingRangeX = 70f;
     public float trackingRangeY = 40f;
     public float detectingRangeY = 5f;
     public float attackRange = 2.5f;
+    private Vector2 direction;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,6 +32,8 @@ public class GorillaController : MonoBehaviour
         Debug.Log("Start");
         rb = GetComponent<Rigidbody2D>();
         rb.mass = 0.5f;
+        player = GameObject.Find("PlayerParasite"); //this could be problematic depending on how we load things
+        parasiteScript = player.gameObject.GetComponent<PlayerController3>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,12 +47,20 @@ public class GorillaController : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
-        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
-        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
+        if (parasiteScript.GetNormalGrav())
+        {
+            direction = Vector2.down;
+        }
+        else
+        {
+            direction = Vector2.up;
+        }
+        RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+        RaycastHit2D groundHitMiddle = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
+        RaycastHit2D groundHitRight = Physics2D.Raycast(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction, 0.5f);
+        UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
         //UnityEngine.Debug.Log("casting ray");
         if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
         {
@@ -64,7 +77,6 @@ public class GorillaController : MonoBehaviour
     {
         if (!controlled) //put all enemy ai behavior in here
         {
-            player = GameObject.FindGameObjectWithTag("Player");
             if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
             {
                 AIFlip(player.transform.position.x);
@@ -72,7 +84,7 @@ public class GorillaController : MonoBehaviour
                 if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
                 {
                     //change the value below to change jump height
-                    rb.AddForce(Vector3.up * 6f, ForceMode2D.Impulse);
+                    rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
                     isGrounded = false;
                 }
                 //attack code
@@ -96,10 +108,18 @@ public class GorillaController : MonoBehaviour
         }
     }
 
-    public void Controlled() //all controlled functions need to set controlled to true to stop ai behavior
+    public void Controlled(bool normalGrav) //all controlled functions need to set controlled to true to stop ai behavior
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         controlled = true; //no need to set to false after being controlled as enemy will die when parasite leaves
+        if (normalGrav)
+        {
+            direction = Vector2.up;
+        }
+        else
+        {
+            direction = Vector2.down;
+        }
         if (Input.GetAxis("Horizontal") != 0)
         {
           gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
@@ -121,7 +141,7 @@ public class GorillaController : MonoBehaviour
             {
                 jpower = 1;
             }
-            rb.AddForce(Vector3.up * (jpower * 8), ForceMode2D.Impulse);
+            rb.AddForce(direction * (jpower * 8), ForceMode2D.Impulse);
             
         }
         if (Input.GetMouseButtonDown(0))
