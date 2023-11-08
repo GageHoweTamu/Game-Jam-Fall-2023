@@ -38,6 +38,10 @@ public class PlayerController3 : MonoBehaviour
     //text vars
     public GameObject gorillaControlPopUp;
     public Canvas pauseMenu;
+    //respawn vars
+    public GameObject cameraScript;
+    public float x_pos;
+    public float y_pos;
 
 
    
@@ -57,6 +61,7 @@ public class PlayerController3 : MonoBehaviour
         BackgroundMusicData.Play();
         gorillaControlPopUp.SetActive(false);
         pauseMenu.enabled = false;
+
     
        
 
@@ -109,7 +114,7 @@ public class PlayerController3 : MonoBehaviour
         }
         if(collision.gameObject.tag == "Spike")
         {
-
+            Die();
         }
     }
 
@@ -117,6 +122,7 @@ public class PlayerController3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Because raycast is from middle of body, can't jump when edge of body is on a platform - no coyote time
         RaycastHit2D groundHitLeft = Physics2D.Raycast(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down, 0.5f);
         UnityEngine.Debug.DrawRay(new Vector3(transform.position.x - 0.55f, transform.position.y, transform.position.z), Vector2.down * 0.5f, Color.red);
@@ -295,6 +301,18 @@ public class PlayerController3 : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    private void Die()
+    {
+        UnityEngine.Debug.Log("Dead");
+        gameObject.transform.position = new Vector3(x_pos+3,y_pos,0.0f);
+    }
+
+    public void GetRespawnPos(Transform doorpos)
+    {
+        x_pos = doorpos.position.x;
+        y_pos = doorpos.position.y;
     }
 
 }
