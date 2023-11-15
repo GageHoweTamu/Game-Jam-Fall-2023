@@ -42,7 +42,11 @@ public class GorillaController : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        Debug.Log("Collision");
+        else if (collision.gameObject.CompareTag("Spike"))
+        {
+            Die(parasiteScript.x_pos, parasiteScript.y_pos);
+        }
+        //Debug.Log("Collision");
     }
 
     private void Update()
@@ -84,24 +88,24 @@ public class GorillaController : MonoBehaviour
                 if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
                 {
                     //change the value below to change jump height
-                    rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
+                    //rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
                     isGrounded = false;
                 }
                 //attack code
                 if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
                 {
-                    Attack();
+                    //Attack();
                 }
                 //move code
                 else
                 {
                     if (isFacingRight)
                     {
-                        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+                        //transform.position += Vector3.right * movementSpeed * Time.deltaTime;
                     }
                     else
                     {
-                        transform.position += Vector3.left * movementSpeed * Time.deltaTime;
+                        //transform.position += Vector3.left * movementSpeed * Time.deltaTime;
                     }
                 }
             }
@@ -196,8 +200,25 @@ public class GorillaController : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void Die(float x_pos, float y_pos)
     {
-
+        gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+        if (parasiteScript.spawnCheetah) //gorilla to cheetah - spike
+        {
+            parasiteScript.cheetah = Instantiate(parasiteScript.prefabCheetah, gameObject.transform.position, gameObject.transform.rotation);
+            parasiteScript.cheetahScript = parasiteScript.cheetah.GetComponent<CheetahController>();
+            parasiteScript.hostRB = parasiteScript.cheetah.GetComponent<Rigidbody2D>();
+            Destroy(gameObject);
+            parasiteScript.controlCheetah();
+        }
+        else if (parasiteScript.spawnParasite) //gorilla to parasite - spike
+        {
+            parasiteScript.gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+            parasiteScript.controlling = false;
+            parasiteScript.rb.simulated = true;
+            parasiteScript.gameObject.tag = "Player";
+            parasiteScript.anim_child.gameObject.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 }

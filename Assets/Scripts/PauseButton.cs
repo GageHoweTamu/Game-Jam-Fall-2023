@@ -58,6 +58,7 @@ public class PauseButton : MonoBehaviour
 
     public void onResetButton()
     {
+        Time.timeScale = 1;
         pauseMenu.enabled = false;
         parasiteScript.Die();
     }

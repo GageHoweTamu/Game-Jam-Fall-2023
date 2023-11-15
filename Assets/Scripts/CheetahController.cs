@@ -44,7 +44,10 @@ public class CheetahController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            Die(parasiteScript.x_pos, parasiteScript.y_pos);
+        }
     }
 
     private void Update()
@@ -189,8 +192,29 @@ public class CheetahController : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void Die(float x_pos, float y_pos)
     {
+<<<<<<< Updated upstream
         audioSource.PlayOneShot(deathSound);
+=======
+        gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+        if (parasiteScript.spawnGorilla) //cheetah to gorilla - spike
+        {
+            parasiteScript.gorilla = Instantiate(parasiteScript.prefabGorilla, gameObject.transform.position, gameObject.transform.rotation);
+            parasiteScript.gorillaScript = parasiteScript.gorilla.GetComponent<GorillaController>();
+            parasiteScript.hostRB = parasiteScript.gorilla.GetComponent<Rigidbody2D>();
+            Destroy(gameObject);
+            parasiteScript.controlGorilla();
+        }
+        else if (parasiteScript.spawnParasite) //cheetah to parasite - spike
+        {
+            parasiteScript.gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+            parasiteScript.controlling = false;
+            parasiteScript.rb.simulated = true;
+            parasiteScript.gameObject.tag = "Player";
+            parasiteScript.anim_child.gameObject.SetActive(true);
+            Destroy(gameObject);
+        }
+>>>>>>> Stashed changes
     }
 }

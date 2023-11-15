@@ -12,22 +12,24 @@ public class PlayerController3 : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
     public GameObject gorilla;
+    public GameObject prefabGorilla;
     public GorillaController gorillaScript;
     public string gorillaName = "Gorilla(Clone)";
     public GameObject cheetah;
+    public GameObject prefabCheetah;
     public CheetahController cheetahScript;
     public string cheetahName = "Cheetah";
-    private string[] nameAry;
+    private string nameAry;
     public bool controlling;
     public bool leaping;
     private SpriteRenderer sprite;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Rigidbody2D hostRB;
     [SerializeField] private bool normalGrav;
     private Vector2 direction;
     //animator vars
     private Animator anim;
-    private Transform anim_child;
+    public Transform anim_child;
     public float idleWalkThresholdSpeed;
     public float walkRunThresholdSpeed;
     public float walkProportionalAnimSpeed;
@@ -45,10 +47,9 @@ public class PlayerController3 : MonoBehaviour
     public GameObject cameraScript;
     public float x_pos;
     public float y_pos;
-
-
-   
-
+    public bool spawnParasite = false;
+    public bool spawnGorilla = false;
+    public bool spawnCheetah = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -65,8 +66,6 @@ public class PlayerController3 : MonoBehaviour
         gorillaControlPopUp.SetActive(false);
         pauseMenu.enabled = false;
         normalGrav = true;
-       
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -103,29 +102,14 @@ public class PlayerController3 : MonoBehaviour
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions until turned back on
-            sprite.enabled = false; //turns off sprite
-            gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-            controlling = true; //condition tracking current state: parasite or controlling enemy
-            leaping = false;
-            collision.gameObject.tag = "Player";
-            gameObject.tag = "Untagged";
-            anim_child.gameObject.SetActive(false);
-            gorillaControlPopUp.SetActive(true);
+            controlGorilla();
         }
         if ((collision.gameObject.tag == "Cheetah") && (!controlling) && leaping) 
         {
             cheetah = collision.gameObject;
             cheetahScript = collision.gameObject.GetComponent<CheetahController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
-            sprite.enabled = false; //turns off sprite
-            gameObject.transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-            controlling = true; //condition tracking current state: parasite or controlling enemy
-            leaping = false;
-            collision.gameObject.tag = "Player";
-            gameObject.tag = "Untagged";
-            anim_child.gameObject.SetActive(false);
+            controlCheetah();
         }
         if(collision.gameObject.tag == "Spike")
         {
@@ -172,8 +156,8 @@ public class PlayerController3 : MonoBehaviour
         Flip();
         if (controlling == true)
         {
-            nameAry = GameObject.FindWithTag("Player").name.Split(" ");
-            if (nameAry[0] == gorillaName) 
+            nameAry = GameObject.FindWithTag("Player").name.Substring(0,7);
+            if (nameAry == gorillaName) 
             {
                 gorillaScript.Controlled(normalGrav); //tells the controlled enemy to move
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
@@ -219,7 +203,7 @@ public class PlayerController3 : MonoBehaviour
                     anim_child.gameObject.SetActive(true);
                 }
             }
-            if (nameAry[0] == cheetahName)
+            if (nameAry == cheetahName)
             {
                 cheetahScript.Controlled(normalGrav); //tells the controlled enemy to move
                 transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
@@ -331,7 +315,7 @@ public class PlayerController3 : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 //JUMP
                 isGrounded = false;
@@ -386,28 +370,112 @@ public class PlayerController3 : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void Die() //pause menu/parasite hit spike
     {
         if (!controlling)
         {
             UnityEngine.Debug.Log("Dead");
-            gameObject.transform.position = new Vector3(x_pos + 3, y_pos, 0.0f);
+            gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+            if (spawnGorilla) //parasite to gorilla - error from pause menu
+            {
+                leaping = true;
+                gorilla = Instantiate(prefabGorilla, gameObject.transform.position, gameObject.transform.rotation);
+                gorillaScript = gorilla.GetComponent<GorillaController>();
+                hostRB = gorilla.GetComponent<Rigidbody2D>();
+                controlGorilla();
+            }
+            else if (spawnCheetah) //parasite to cheetah - error from pause menu
+            {
+                leaping = true;
+                cheetah = Instantiate(prefabCheetah, gameObject.transform.position, gameObject.transform.rotation);
+                cheetahScript = cheetah.GetComponent<CheetahController>();
+                hostRB = cheetah.GetComponent<Rigidbody2D>();
+                controlCheetah();
+            }
         }
-        else if (gorilla != null)
+        else if (gorilla != null) //pause menu as gorilla
         {
-            gorillaScript.Die();
+            gorilla.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+            if (spawnGorilla) //gorilla to gorilla
+            {
+                gorillaScript.Die(x_pos, y_pos);
+            }
+            else if (spawnCheetah) //gorilla to cheetah
+            {
+                Destroy(gorilla);
+                cheetah = Instantiate(prefabCheetah, gorilla.transform.position, gameObject.transform.rotation);
+                cheetahScript = cheetah.GetComponent<CheetahController>();
+                hostRB = cheetah.GetComponent<Rigidbody2D>();
+                controlCheetah();
+            }
+            else if (spawnParasite) //gorilla to parasite
+            {
+                gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+                Destroy(gorilla);
+                controlling = false;
+                rb.simulated = true;
+                gameObject.tag = "Player";
+                anim_child.gameObject.SetActive(true);
+            }
         }
-        else if (cheetahScript != null)
+        else if (cheetah != null) //pause menu as cheetah
         {
-            cheetahScript.Die();
+            cheetah.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+            if (spawnCheetah) //cheetah to cheetah
+            {
+                cheetahScript.Die(x_pos, y_pos);
+            }
+            else if (spawnGorilla) //cheetah to gorilla
+            {
+                Destroy(cheetah);
+                gorilla = Instantiate(prefabGorilla, cheetah.transform.position, gameObject.transform.rotation);
+                gorillaScript = gorilla.GetComponent<GorillaController>();
+                hostRB = gorilla.GetComponent<Rigidbody2D>();
+                controlGorilla();
+            }
+            else if (spawnParasite) //cheetah to parasite
+            {
+                gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+                Destroy(cheetah);
+                controlling = false;
+                rb.simulated = true;
+                gameObject.tag = "Player";
+                anim_child.gameObject.SetActive(true);
+            }
         }
     }
 
+    public void controlGorilla()
+    {
+        rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions until turned back on
+        sprite.enabled = false; //turns off sprite
+        gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+        controlling = true; //condition tracking current state: parasite or controlling enemy
+        leaping = false;
+        gorilla.tag = "Player";
+        gameObject.tag = "Untagged";
+        anim_child.gameObject.SetActive(false);
+        gorillaControlPopUp.SetActive(true);
+    }
+
+    public void controlCheetah()
+    {
+        rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
+        sprite.enabled = false; //turns off sprite
+        gameObject.transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
+        controlling = true; //condition tracking current state: parasite or controlling enemy
+        leaping = false;
+        cheetah.tag = "Player";
+        gameObject.tag = "Untagged";
+        anim_child.gameObject.SetActive(false);
+    }
+    /*
     public void GetRespawnPos(Transform doorpos)
     {
         x_pos = doorpos.position.x;
         y_pos = doorpos.position.y;
     }
+    */
     public void GravityFlip()
     {
         normalGrav = !normalGrav;

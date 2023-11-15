@@ -23,7 +23,7 @@ public class Door : MonoBehaviour
        
         if (collision.tag == "Player")
         {
-            parasite.GetRespawnPos(collision.transform);
+            //parasite.GetRespawnPos(collision.transform);
             if (collision.transform.position.x < transform.position.x && doortype)
             {
                 ypos = collision.transform.position.y;
