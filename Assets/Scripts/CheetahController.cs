@@ -194,9 +194,7 @@ public class CheetahController : MonoBehaviour
 
     public void Die(float x_pos, float y_pos)
     {
-<<<<<<< Updated upstream
         audioSource.PlayOneShot(deathSound);
-=======
         gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
         if (parasiteScript.spawnGorilla) //cheetah to gorilla - spike
         {
@@ -215,6 +213,5 @@ public class CheetahController : MonoBehaviour
             parasiteScript.anim_child.gameObject.SetActive(true);
             Destroy(gameObject);
         }
->>>>>>> Stashed changes
     }
 }
