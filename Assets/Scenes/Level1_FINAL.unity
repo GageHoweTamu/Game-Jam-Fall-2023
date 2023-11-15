@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 85190752}
+  parasiteScript: {fileID: 0}
 --- !u!4 &60102807
 Transform:
   m_ObjectHideFlags: 0
@@ -4583,6 +4584,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 86d1e18324a394429add3c64ed08ad86, type: 3}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: controlled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 24b812e3f590345fa816f1d19bd77edb, type: 3}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 86d1e18324a394429add3c64ed08ad86, type: 3}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 256929531}
+    - target: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 06dc1c887d6534d83a348d126aec8ff3, type: 3}
+    - target: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6568119893905268307, guid: 423ed2124503e4676afd068699099078, type: 2}
+    - target: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4693,6 +4726,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+--- !u!82 &256929531 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+  m_PrefabInstance: {fileID: 251942477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &264072114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6628,6 +6666,34 @@ PrefabInstance:
     - target: {fileID: 5099146681048793499, guid: a476f10ba394c8c488944609872a6e53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 86d1e18324a394429add3c64ed08ad86, type: 3}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 24b812e3f590345fa816f1d19bd77edb, type: 3}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 86d1e18324a394429add3c64ed08ad86, type: 3}
+    - target: {fileID: 6058772079892549414, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 863944234}
+    - target: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f7b2ebb9ecb654d0ea904d59ed411a6e, type: 3}
+    - target: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14855,6 +14921,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1363737874421644909, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
   m_PrefabInstance: {fileID: 850426920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &863944234 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8787603882702529308, guid: a476f10ba394c8c488944609872a6e53, type: 3}
+  m_PrefabInstance: {fileID: 358425757}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &866957811 stripped
 Transform:

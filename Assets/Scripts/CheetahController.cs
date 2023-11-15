@@ -6,6 +6,13 @@ using UnityEngine;
 public class CheetahController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5;
+
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip deathSound;
+
+    public AudioSource audioSource;
+
     public bool isGrounded;
     private Rigidbody2D rb;
     private float jpower;
@@ -81,11 +88,13 @@ public class CheetahController : MonoBehaviour
                     //change the value below to change jump height
                     rb.AddForce(direction * 6f, ForceMode2D.Impulse);
                     isGrounded = false;
+                    audioSource.PlayOneShot(jumpSound);
                 }
                 //attack code
                 if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
                 {
                     Attack();
+                    audioSource.PlayOneShot(attackSound);
                 }
                 //move code
                 else
@@ -182,6 +191,6 @@ public class CheetahController : MonoBehaviour
 
     public void Die()
     {
-
+        audioSource.PlayOneShot(deathSound);
     }
 }
