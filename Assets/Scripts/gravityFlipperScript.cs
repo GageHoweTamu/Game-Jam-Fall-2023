@@ -34,11 +34,11 @@ public class gravityFlipperScript : MonoBehaviour
                 {
                     parasiteScript.GravityFlip();
                     gravityFlippers = GameObject.FindGameObjectsWithTag("GravityFlipper");
-                    Vector3 localScaleFlipper = gravityFlippers[0].transform.localScale;
-                    localScaleFlipper.y *= -1f;
                     for (int i = 0; i < gravityFlippers.Length; ++i)
                     {
                         spriteRenderer = gravityFlippers[i].GetComponent<SpriteRenderer>();
+                        Vector3 localScaleFlipper = gravityFlippers[i].transform.localScale;
+                        localScaleFlipper.y *= -1f;
                         gravityFlippers[i].transform.localScale = localScaleFlipper;
                         if (localScaleFlipper.y > 0f)
                         {

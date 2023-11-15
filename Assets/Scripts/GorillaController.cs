@@ -195,4 +195,9 @@ public class GorillaController : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+    public void Die()
+    {
+
+    }
 }

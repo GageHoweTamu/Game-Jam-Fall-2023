@@ -10,11 +10,11 @@ using UnityEngine.UI;
 public class PauseButton : MonoBehaviour
 {
     public Canvas pauseMenu;
+    public PlayerController3 parasiteScript;
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        parasiteScript = GameObject.Find("PlayerParasite").GetComponent<PlayerController3>();
     }
 
     // Update is called once per frame
@@ -54,5 +54,11 @@ public class PauseButton : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("StartScreen");
+    }
+
+    public void onResetButton()
+    {
+        pauseMenu.enabled = false;
+        parasiteScript.Die();
     }
 }

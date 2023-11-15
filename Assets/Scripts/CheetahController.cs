@@ -179,4 +179,9 @@ public class CheetahController : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+    public void Die()
+    {
+
+    }
 }

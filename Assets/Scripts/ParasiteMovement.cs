@@ -386,10 +386,21 @@ public class PlayerController3 : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
-        UnityEngine.Debug.Log("Dead");
-        gameObject.transform.position = new Vector3(x_pos+3,y_pos,0.0f);
+        if (!controlling)
+        {
+            UnityEngine.Debug.Log("Dead");
+            gameObject.transform.position = new Vector3(x_pos + 3, y_pos, 0.0f);
+        }
+        else if (gorilla != null)
+        {
+            gorillaScript.Die();
+        }
+        else if (cheetahScript != null)
+        {
+            cheetahScript.Die();
+        }
     }
 
     public void GetRespawnPos(Transform doorpos)
