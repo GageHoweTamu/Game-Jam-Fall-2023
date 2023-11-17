@@ -12,9 +12,13 @@ public class RespawnPoint : MonoBehaviour
     private GameObject[] respawnPoints;
     private SpriteRenderer spriteRenderer;
     private PlayerController3 parasiteScript;
-    public bool spawnParasite;
-    public bool spawnGorilla;
-    public bool spawnCheetah;
+    public bool spawnParasite; //true = spawn as parasite
+    public bool spawnGorilla; //true = spawn as gorilla
+    public bool spawnCheetah; //true = spawn as cheetah
+    public bool respawnNormalGrav; //true = spawn with normal gravity
+    public Transform room;
+    public bool bigRoom; //true = spawn room is a big room, false = small room
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,9 @@ public class RespawnPoint : MonoBehaviour
             parasiteScript.spawnParasite = spawnParasite;
             parasiteScript.spawnGorilla = spawnGorilla;
             parasiteScript.spawnCheetah = spawnCheetah;
+            parasiteScript.respawnNormalGrav = respawnNormalGrav;
+            parasiteScript.respawnRoom = room;
+            parasiteScript.bigRoom = bigRoom;
 
         }
 

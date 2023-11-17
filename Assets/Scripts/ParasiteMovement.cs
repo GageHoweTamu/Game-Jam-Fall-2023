@@ -50,6 +50,11 @@ public class PlayerController3 : MonoBehaviour
     public bool spawnParasite = false;
     public bool spawnGorilla = false;
     public bool spawnCheetah = false;
+    public bool respawnNormalGrav = true;
+    public gravityFlipperScript gravityFlipper;
+    public Transform respawnRoom;
+    public CameraController cam;
+    public bool bigRoom = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -66,6 +71,7 @@ public class PlayerController3 : MonoBehaviour
         gorillaControlPopUp.SetActive(false);
         pauseMenu.enabled = false;
         normalGrav = true;
+        gravityFlipper = GameObject.FindGameObjectWithTag("GravityFlipper").GetComponent<gravityFlipperScript>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -144,7 +150,7 @@ public class PlayerController3 : MonoBehaviour
             isGrounded = false; 
             //UnityEngine.Debug.Log("not grounded"); 
         }
-        if(Input.GetKeyDown("p"))
+        if(Input.GetButtonDown("Pause"))
         {
             Time.timeScale = 0;
             pauseMenu.enabled = true;
@@ -161,7 +167,7 @@ public class PlayerController3 : MonoBehaviour
             {
                 gorillaScript.Controlled(normalGrav); //tells the controlled enemy to move
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-                if (Input.GetMouseButtonDown(1) && !leaping)
+                if (Input.GetButtonDown("Fire2") && !leaping)
                 {
                     controlling = false;
                     leaping = true;
@@ -207,7 +213,7 @@ public class PlayerController3 : MonoBehaviour
             {
                 cheetahScript.Controlled(normalGrav); //tells the controlled enemy to move
                 transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
-                if (Input.GetMouseButtonDown(1) && !leaping)
+                if (Input.GetButtonDown("Fire2") && !leaping)
                 {
                     controlling = false;
                     leaping = true;
@@ -330,7 +336,7 @@ public class PlayerController3 : MonoBehaviour
                 FlapAudioData.Play();
             }
 
-            if (Input.GetMouseButtonDown(1) && isGrounded && !leaping)
+            if (Input.GetButtonDown("Fire2") && isGrounded && !leaping)
             {
                 leaping = true;
                 if (isFacingRight)
@@ -442,6 +448,16 @@ public class PlayerController3 : MonoBehaviour
                 gameObject.tag = "Player";
                 anim_child.gameObject.SetActive(true);
             }
+        }
+        gravityFlipper.ResetFlippers(normalGrav, respawnNormalGrav);
+        cam.MoveToNewRoom(respawnRoom);
+        if (bigRoom)
+        {
+            cam.ChangeCamSize(8.0f, true);
+        }
+        else
+        {
+            cam.ChangeCamSize(4.0f, false);
         }
     }
 

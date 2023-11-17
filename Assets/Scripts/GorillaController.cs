@@ -22,6 +22,8 @@ public class GorillaController : MonoBehaviour
     public float detectingRangeY = 5f;
     public float attackRange = 2.5f;
     private Vector2 direction;
+    private int interval = 0; //not important
+    private int movementFlipper = 1; //not important
 
     // Start is called before the first frame update
     private void Start()
@@ -81,36 +83,45 @@ public class GorillaController : MonoBehaviour
     {
         if (!controlled) //put all enemy ai behavior in here
         {
-            if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
+            if (interval % 50 == 0)
             {
-                AIFlip(player.transform.position.x);
-                //jump code
-                if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
+                movementFlipper *= -1;
+            }
+            gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
+            ++interval;
+        }
+        /*
+        if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
+        {
+            AIFlip(player.transform.position.x);
+            //jump code
+            if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
+            {
+                //change the value below to change jump height
+                //rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
+                isGrounded = false;
+            }
+            //attack code
+            if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
+            {
+                //Attack();
+            }
+            //move code
+            else
+            {
+                if (isFacingRight)
                 {
-                    //change the value below to change jump height
-                    //rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
-                    isGrounded = false;
+                    //transform.position += Vector3.right * movementSpeed * Time.deltaTime;
                 }
-                //attack code
-                if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
-                {
-                    //Attack();
-                }
-                //move code
                 else
                 {
-                    if (isFacingRight)
-                    {
-                        //transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        //transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-                    }
+                    //transform.position += Vector3.left * movementSpeed * Time.deltaTime;
                 }
             }
         }
+        */
     }
+
 
     public void Controlled(bool normalGrav) //all controlled functions need to set controlled to true to stop ai behavior
     {
@@ -131,11 +142,11 @@ public class GorillaController : MonoBehaviour
         }
 
         Flip();
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             timer = Time.time;
         }
-        if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonUp("Jump") && isGrounded)
         {
 
             isGrounded = false;
@@ -148,7 +159,7 @@ public class GorillaController : MonoBehaviour
             rb.AddForce(direction * (jpower * 8), ForceMode2D.Impulse);
             
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             Attack();
         }
@@ -219,6 +230,16 @@ public class GorillaController : MonoBehaviour
             parasiteScript.gameObject.tag = "Player";
             parasiteScript.anim_child.gameObject.SetActive(true);
             Destroy(gameObject);
+        }
+        parasiteScript.gravityFlipper.ResetFlippers(parasiteScript.GetNormalGrav(), parasiteScript.respawnNormalGrav);
+        parasiteScript.cam.MoveToNewRoom(parasiteScript.respawnRoom);
+        if (parasiteScript.bigRoom)
+        {
+            parasiteScript.cam.ChangeCamSize(8.0f, true);
+        }
+        else
+        {
+            parasiteScript.cam.ChangeCamSize(4.0f, false);
         }
     }
 }

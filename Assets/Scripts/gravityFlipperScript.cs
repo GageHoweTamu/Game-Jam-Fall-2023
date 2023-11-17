@@ -58,4 +58,29 @@ public class gravityFlipperScript : MonoBehaviour
             timer = Time.time;
         }
     }
+
+    public void ResetFlippers(bool normalGrav, bool respawnNormalGrav)
+    {
+        if (!(normalGrav == respawnNormalGrav))
+        {
+            parasiteScript.GravityFlip();
+            gravityFlippers = GameObject.FindGameObjectsWithTag("GravityFlipper");
+            for (int i = 0; i < gravityFlippers.Length; ++i)
+            {
+                spriteRenderer = gravityFlippers[i].GetComponent<SpriteRenderer>();
+                Vector3 localScaleFlipper = gravityFlippers[i].transform.localScale;
+                localScaleFlipper.y *= -1f;
+                gravityFlippers[i].transform.localScale = localScaleFlipper;
+                if (localScaleFlipper.y > 0f)
+                {
+                    spriteRenderer.color = Color.blue;
+                }
+                else
+                {
+                    spriteRenderer.color = Color.red;
+                }
+            }
+        }
+
+    }
 }

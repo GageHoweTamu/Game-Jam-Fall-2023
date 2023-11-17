@@ -28,6 +28,8 @@ public class CheetahController : MonoBehaviour
     public float detectingRangeY = 5f;
     public float attackRange = 2.5f;
     private Vector2 direction;
+    private int interval = 0; //not important
+    private int movementFlipper = 1; //not important
 
     // Start is called before the first frame update
     private void Start()
@@ -82,6 +84,13 @@ public class CheetahController : MonoBehaviour
     {
         if (!controlled) //put all enemy ai behavior in here
         {
+            if (interval % 40 == 0)
+            {
+                movementFlipper *= -1;
+            }
+            gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
+            ++interval;
+            /*
             if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
             {
                 AIFlip(player.transform.position.x);
@@ -112,6 +121,7 @@ public class CheetahController : MonoBehaviour
                     }
                 }
             }
+            */
         }
     }
 
@@ -135,12 +145,12 @@ public class CheetahController : MonoBehaviour
 
         Flip();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             Attack();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(direction * 3, ForceMode2D.Impulse);
         }
@@ -213,5 +223,7 @@ public class CheetahController : MonoBehaviour
             parasiteScript.anim_child.gameObject.SetActive(true);
             Destroy(gameObject);
         }
+        parasiteScript.gravityFlipper.ResetFlippers(parasiteScript.GetNormalGrav(), parasiteScript.respawnNormalGrav);
+        parasiteScript.cam.MoveToNewRoom(parasiteScript.respawnRoom);
     }
 }

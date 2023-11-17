@@ -7755,6 +7755,11 @@ MonoBehaviour:
   spawnParasite: 0
   spawnGorilla: 0
   spawnCheetah: 0
+  respawnNormalGrav: 1
+  gravityFlipper: {fileID: 0}
+  respawnRoom: {fileID: 0}
+  cam: {fileID: 820372315}
+  bigRoom: 0
 --- !u!61 &1453141315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10474,6 +10479,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
+  jumpSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  audioSource: {fileID: 0}
   isGrounded: 0
   controlled: 0
   attacking: 0
