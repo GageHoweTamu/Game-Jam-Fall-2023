@@ -156,7 +156,7 @@ public class GorillaController : MonoBehaviour
             {
                 jpower = 1;
             }
-            rb.AddForce(direction * (jpower * 8), ForceMode2D.Impulse);
+            rb.AddForce(direction * (jpower * 10), ForceMode2D.Impulse);
             
         }
         if (Input.GetButtonDown("Fire1"))

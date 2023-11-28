@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CheetahController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5;
+    [SerializeField] private float movementSpeed = 10;
 
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip attackSound;
