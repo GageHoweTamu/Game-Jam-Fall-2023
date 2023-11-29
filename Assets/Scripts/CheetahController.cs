@@ -42,6 +42,7 @@ public class CheetahController : MonoBehaviour
         rb.mass = 0.5f;
         player = GameObject.Find("PlayerParasite");
         parasiteScript = player.gameObject.GetComponent<PlayerController3>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -145,14 +146,16 @@ public class CheetahController : MonoBehaviour
 
         Flip();
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !parasiteScript.paused)
         {
             Attack();
+            audioSource.PlayOneShot(attackSound);
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump") && isGrounded && !parasiteScript.paused)
         {
             rb.AddForce(direction * 3, ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 

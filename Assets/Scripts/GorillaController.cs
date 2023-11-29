@@ -24,6 +24,12 @@ public class GorillaController : MonoBehaviour
     private Vector2 direction;
     private int interval = 0; //not important
     private int movementFlipper = 1; //not important
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip wallBreak;
+
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     private void Start()
@@ -36,6 +42,7 @@ public class GorillaController : MonoBehaviour
         rb.mass = 0.5f;
         player = GameObject.Find("PlayerParasite"); //this could be problematic depending on how we load things
         parasiteScript = player.gameObject.GetComponent<PlayerController3>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,6 +50,7 @@ public class GorillaController : MonoBehaviour
         if (collision.transform.tag.Equals("Wall") && attacking)
         {
             Destroy(collision.gameObject);
+            audioSource.PlayOneShot(wallBreak);
         }
         else if (collision.gameObject.CompareTag("Spike"))
         {
@@ -142,11 +150,11 @@ public class GorillaController : MonoBehaviour
         }
 
         Flip();
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !parasiteScript.paused)
         {
             timer = Time.time;
         }
-        if (Input.GetButtonUp("Jump") && isGrounded)
+        if (Input.GetButtonUp("Jump") && isGrounded && !parasiteScript.paused)
         {
 
             isGrounded = false;
@@ -157,11 +165,13 @@ public class GorillaController : MonoBehaviour
                 jpower = 1;
             }
             rb.AddForce(direction * (jpower * 10), ForceMode2D.Impulse);
-            
+            audioSource.PlayOneShot(jumpSound);
+
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !parasiteScript.paused)
         {
             Attack();
+            audioSource.PlayOneShot(attackSound);
         }
     }
 
@@ -213,6 +223,7 @@ public class GorillaController : MonoBehaviour
 
     public void Die(float x_pos, float y_pos)
     {
+        audioSource.PlayOneShot(deathSound);
         gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
         if (rb != null)
         {

@@ -40,6 +40,8 @@ public class PlayerController3 : MonoBehaviour
     //sound vars
     public AudioSource FlapAudioData;
     public AudioSource BackgroundMusicData;
+    public AudioClip deathSound;
+    public AudioClip leapSound;
     //text vars
     public GameObject gorillaControlPopUp;
     public Canvas pauseMenu;
@@ -58,6 +60,7 @@ public class PlayerController3 : MonoBehaviour
     public Transform troubleRoom;
     public GameObject troubleDoor1;
     public GameObject troubleDoor2;
+    public bool paused;
 
     // Start is called before the first frame update
     private void Start()
@@ -75,6 +78,7 @@ public class PlayerController3 : MonoBehaviour
         pauseMenu.enabled = false;
         normalGrav = true;
         gravityFlipper = GameObject.FindGameObjectWithTag("GravityFlipper").GetComponent<gravityFlipperScript>();
+        paused = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -97,6 +101,7 @@ public class PlayerController3 : MonoBehaviour
             UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
             if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
             {
+                leaping = false;
                 leaping = false;
                 UnityEngine.Debug.Log("hit ground, done leaping");
             }
@@ -157,6 +162,7 @@ public class PlayerController3 : MonoBehaviour
         {
             Time.timeScale = 0;
             pauseMenu.enabled = true;
+            paused = true;
         }
 
 
@@ -172,6 +178,7 @@ public class PlayerController3 : MonoBehaviour
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetButtonDown("Fire2") && !leaping)
                 {
+                    FlapAudioData.PlayOneShot(leapSound);
                     controlling = false;
                     leaping = true;
                     UnityEngine.Debug.Log("leaping from gorilla");
@@ -218,6 +225,7 @@ public class PlayerController3 : MonoBehaviour
                 transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetButtonDown("Fire2") && !leaping)
                 {
+                    FlapAudioData.PlayOneShot(leapSound);
                     controlling = false;
                     leaping = true;
                     if (normalGrav)
@@ -341,6 +349,7 @@ public class PlayerController3 : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2") && isGrounded && !leaping)
             {
+                FlapAudioData.PlayOneShot(leapSound);
                 leaping = true;
                 if (isFacingRight)
                 {
@@ -383,6 +392,7 @@ public class PlayerController3 : MonoBehaviour
     {
         if (!controlling)
         {
+            FlapAudioData.PlayOneShot(deathSound);
             UnityEngine.Debug.Log("Dead");
             gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
             rb.velocity = Vector3.zero;
