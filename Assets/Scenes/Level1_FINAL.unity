@@ -6662,6 +6662,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+--- !u!1 &192192724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4942366204431951920, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+  m_PrefabInstance: {fileID: 1597458987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &196139957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1363737874421644909, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
@@ -24197,6 +24202,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4868174141146339642, guid: f7c5e04185f473a418779d417b4e5603, type: 3}
       propertyPath: spawnCheetah
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4868174141146339642, guid: f7c5e04185f473a418779d417b4e5603, type: 3}
+      propertyPath: spawnParasite
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4868174141146339642, guid: f7c5e04185f473a418779d417b4e5603, type: 3}
@@ -27960,6 +27969,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
+--- !u!1 &839676629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4942366204431951920, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+  m_PrefabInstance: {fileID: 1077209028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &840839437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1363737874421644909, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
@@ -51782,7 +51796,7 @@ Transform:
   m_GameObject: {fileID: 1453141309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.11, y: 44.7, z: 0}
+  m_LocalPosition: {x: 85.6, y: 103.8, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.39999992}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -51837,6 +51851,9 @@ MonoBehaviour:
   respawnRoom: {fileID: 0}
   cam: {fileID: 820372315}
   bigRoom: 0
+  troubleRoom: {fileID: 765788938}
+  troubleDoor1: {fileID: 192192724}
+  troubleDoor2: {fileID: 839676629}
 --- !u!61 &1453141315
 BoxCollider2D:
   m_ObjectHideFlags: 0

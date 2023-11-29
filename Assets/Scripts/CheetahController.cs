@@ -206,7 +206,10 @@ public class CheetahController : MonoBehaviour
     {
         audioSource.PlayOneShot(deathSound);
         gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
-        rb.velocity = Vector3.zero;
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+        }
         if (parasiteScript.spawnGorilla) //cheetah to gorilla - spike
         {
             parasiteScript.gorilla = Instantiate(parasiteScript.prefabGorilla, gameObject.transform.position, gameObject.transform.rotation);
@@ -226,5 +229,20 @@ public class CheetahController : MonoBehaviour
         }
         parasiteScript.gravityFlipper.ResetFlippers(parasiteScript.GetNormalGrav(), parasiteScript.respawnNormalGrav);
         parasiteScript.cam.MoveToNewRoom(parasiteScript.respawnRoom);
+        if (parasiteScript.respawnRoom == parasiteScript.troubleRoom)
+        {
+            parasiteScript.troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            parasiteScript.troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            parasiteScript.troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            parasiteScript.troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        if (parasiteScript.bigRoom)
+        {
+            parasiteScript.cam.ChangeCamSize(8.0f, true);
+        }
+        else
+        {
+            parasiteScript.cam.ChangeCamSize(4.0f, false);
+        }
     }
 }

@@ -55,6 +55,9 @@ public class PlayerController3 : MonoBehaviour
     public Transform respawnRoom;
     public CameraController cam;
     public bool bigRoom = false;
+    public Transform troubleRoom;
+    public GameObject troubleDoor1;
+    public GameObject troubleDoor2;
 
     // Start is called before the first frame update
     private void Start()
@@ -452,6 +455,13 @@ public class PlayerController3 : MonoBehaviour
             }
         }
         cam.MoveToNewRoom(respawnRoom);
+        if (respawnRoom == troubleRoom)
+        {
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
         if (bigRoom)
         {
             cam.ChangeCamSize(8.0f, true);
