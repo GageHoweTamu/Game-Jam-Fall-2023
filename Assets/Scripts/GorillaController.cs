@@ -214,6 +214,7 @@ public class GorillaController : MonoBehaviour
     public void Die(float x_pos, float y_pos)
     {
         gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+        rb.velocity = Vector3.zero;
         if (parasiteScript.spawnCheetah) //gorilla to cheetah - spike
         {
             parasiteScript.cheetah = Instantiate(parasiteScript.prefabCheetah, gameObject.transform.position, gameObject.transform.rotation);

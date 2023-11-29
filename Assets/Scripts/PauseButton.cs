@@ -42,7 +42,7 @@ public class PauseButton : MonoBehaviour
     public void onStartButton()
     {
         pauseMenu.enabled = false;
-        SceneManager.LoadScene("Level1_DUPE");
+        SceneManager.LoadScene("Level1_FINAL");
     }
 
     public void onQuitButton()

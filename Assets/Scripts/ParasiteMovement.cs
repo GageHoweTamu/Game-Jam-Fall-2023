@@ -382,6 +382,8 @@ public class PlayerController3 : MonoBehaviour
         {
             UnityEngine.Debug.Log("Dead");
             gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+            rb.velocity = Vector3.zero;
+            gravityFlipper.ResetFlippers(normalGrav, respawnNormalGrav);
             if (spawnGorilla) //parasite to gorilla - error from pause menu
             {
                 leaping = true;
@@ -449,7 +451,6 @@ public class PlayerController3 : MonoBehaviour
                 anim_child.gameObject.SetActive(true);
             }
         }
-        gravityFlipper.ResetFlippers(normalGrav, respawnNormalGrav);
         cam.MoveToNewRoom(respawnRoom);
         if (bigRoom)
         {
@@ -463,6 +464,7 @@ public class PlayerController3 : MonoBehaviour
 
     public void controlGorilla()
     {
+        hostRB.velocity = Vector3.zero;
         rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions until turned back on
         sprite.enabled = false; //turns off sprite
         gameObject.transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
@@ -476,6 +478,7 @@ public class PlayerController3 : MonoBehaviour
 
     public void controlCheetah()
     {
+        hostRB.velocity = Vector3.zero;
         rb.simulated = false; //turns off the rigidbody, disabling gravity and collisions unitl turned back on
         sprite.enabled = false; //turns off sprite
         gameObject.transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed

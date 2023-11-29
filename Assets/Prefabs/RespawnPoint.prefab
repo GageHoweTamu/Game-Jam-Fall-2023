@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 918700883
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,3 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f46ec6898a0c5d48952bc8eb9cd5a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnParasite: 0
+  spawnGorilla: 0
+  spawnCheetah: 0
+  respawnNormalGrav: 0
+  room: {fileID: 0}
+  bigRoom: 0

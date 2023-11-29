@@ -206,6 +206,7 @@ public class CheetahController : MonoBehaviour
     {
         audioSource.PlayOneShot(deathSound);
         gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
+        rb.velocity = Vector3.zero;
         if (parasiteScript.spawnGorilla) //cheetah to gorilla - spike
         {
             parasiteScript.gorilla = Instantiate(parasiteScript.prefabGorilla, gameObject.transform.position, gameObject.transform.rotation);
