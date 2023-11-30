@@ -40716,7 +40716,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_IsActive
@@ -58069,7 +58069,7 @@ Transform:
   m_GameObject: {fileID: 1453141309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.4, y: 44.6, z: 0}
+  m_LocalPosition: {x: -5.8, y: -1.5, z: 0}
   m_LocalScale: {x: 0.3, y: 0.32946, z: 0.39999992}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -58129,6 +58129,9 @@ MonoBehaviour:
   troubleRoom: {fileID: 765788938}
   troubleDoor1: {fileID: 192192724}
   troubleDoor2: {fileID: 839676629}
+  troubleDoor3: {fileID: 0}
+  troubleDoor4: {fileID: 0}
+  troubleDoor5: {fileID: 0}
   paused: 0
 --- !u!61 &1453141315
 BoxCollider2D:
@@ -63035,6 +63038,10 @@ PrefabInstance:
     - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_GravityScale
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: bulletPrefab
@@ -74243,6 +74250,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 4722615945610823711, guid: eae789bf451a09f42a8d831b994d4140, type: 3}
@@ -84334,6 +84345,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: movementSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -84364,6 +84379,10 @@ PrefabInstance:
     - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_GravityScale
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: bulletPrefab

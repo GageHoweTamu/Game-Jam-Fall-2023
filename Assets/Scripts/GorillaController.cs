@@ -248,13 +248,7 @@ public class GorillaController : MonoBehaviour
         }
         parasiteScript.gravityFlipper.ResetFlippers(parasiteScript.GetNormalGrav(), parasiteScript.respawnNormalGrav);
         parasiteScript.cam.MoveToNewRoom(parasiteScript.respawnRoom);
-        if (parasiteScript.respawnRoom == parasiteScript.troubleRoom)
-        {
-            parasiteScript.troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
-            parasiteScript.troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-            parasiteScript.troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
-            parasiteScript.troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-        }
+        parasiteScript.ResetDoors(parasiteScript.respawnRoom);
         if (parasiteScript.bigRoom)
         {
             parasiteScript.cam.ChangeCamSize(8.0f, true);
