@@ -28,7 +28,12 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private AudioClip attackSound;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip wallBreak;
-
+    //animation vars
+    private Animator anim;
+    // public Transform anim_child;
+    private float idleWalkThresholdSpeed = 0.2f;
+    private float walkProportionalAnimSpeed = 1.0f;
+    //
     public AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -43,6 +48,8 @@ public class GorillaController : MonoBehaviour
         player = GameObject.Find("PlayerParasite"); //this could be problematic depending on how we load things
         parasiteScript = player.gameObject.GetComponent<PlayerController3>();
         audioSource = GetComponent<AudioSource>();
+        //animator
+        anim = GetComponentsInChildren<Animator>()[0];
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -61,6 +68,9 @@ public class GorillaController : MonoBehaviour
 
     private void Update()
     {
+        //ANIMATION CONTROLS
+        anim.SetFloat("anim_speed_mult", Mathf.Abs(rb.velocity.x) * walkProportionalAnimSpeed);
+        //
         if (parasiteScript.GetNormalGrav())
         {
             direction = Vector2.down;
@@ -86,6 +96,7 @@ public class GorillaController : MonoBehaviour
             //UnityEngine.Debug.Log("not grounded"); 
         }
     }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -95,39 +106,12 @@ public class GorillaController : MonoBehaviour
             {
                 movementFlipper *= -1;
             }
-            gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
+            rb.velocity = new Vector2(movementFlipper * movementSpeed * 2, rb.velocity.y);
+            // would rather not do finite derivatives on transform.position
+            // gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
             ++interval;
+            AIFlip();
         }
-        /*
-        if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
-        {
-            AIFlip(player.transform.position.x);
-            //jump code
-            if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
-            {
-                //change the value below to change jump height
-                //rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
-                isGrounded = false;
-            }
-            //attack code
-            if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
-            {
-                //Attack();
-            }
-            //move code
-            else
-            {
-                if (isFacingRight)
-                {
-                    //transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    //transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-                }
-            }
-        }
-        */
     }
 
 
@@ -145,7 +129,8 @@ public class GorillaController : MonoBehaviour
         }
         if (Input.GetAxis("Horizontal") != 0)
         {
-          gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * 3, rb.velocity.y);
+        //   gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
             
         }
 
@@ -209,10 +194,10 @@ public class GorillaController : MonoBehaviour
         }
     }
 
-    //flip, but works while not controlled
-    private void AIFlip(float playerX)
+    //flips based on velocity
+    private void AIFlip()
     {
-        if (isFacingRight && playerX < rb.position.x || !isFacingRight && playerX > rb.position.x)
+        if(isFacingRight && rb.velocity.x < 0 || !isFacingRight && rb.velocity.x > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
