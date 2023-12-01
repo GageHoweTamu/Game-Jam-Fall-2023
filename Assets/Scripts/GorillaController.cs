@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 public class GorillaController : MonoBehaviour
 {
@@ -62,6 +66,11 @@ public class GorillaController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Spike"))
         {
             Die(parasiteScript.x_pos, parasiteScript.y_pos);
+        }
+        if(collision.gameObject.tag == "Ending")
+        {
+            UnityEngine.Debug.Log("fun");
+            SceneManager.LoadScene("EndingScreen");
         }
         //Debug.Log("Collision");
     }

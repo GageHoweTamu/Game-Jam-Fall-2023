@@ -16,6 +16,8 @@ TagManager:
   - Popup
   - Gorilla Text
   - Parasite Text
+  - Cheetah Text
+  - Ending
   layers:
   - Default
   - TransparentFX

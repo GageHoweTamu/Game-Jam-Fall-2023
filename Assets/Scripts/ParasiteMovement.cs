@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerController3 : MonoBehaviour
 {
@@ -141,6 +144,11 @@ public class PlayerController3 : MonoBehaviour
         if(collision.gameObject.tag == "Spike")
         {
             Die();
+        }
+        if(collision.gameObject.tag == "Ending")
+        {
+            UnityEngine.Debug.Log("fun");
+            SceneManager.LoadScene("EndingScreen");
         }
     }
 
