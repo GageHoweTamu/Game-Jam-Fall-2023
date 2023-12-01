@@ -13,10 +13,14 @@ public class Door : MonoBehaviour
     [SerializeField] private PlayerController3 parasite;
     public float xpos = 10; //x-position of player when they walk through door(for respawn)
     public float ypos = 10; //y-position of player when they walk through door(for respawn)
-
+    private GameObject gorillaControlPopUp;
+    private GameObject cheetahControlPopUp;
     void Start(){
         parasite = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3>();
+        gorillaControlPopUp = GameObject.FindGameObjectWithTag("Gorilla Text");
+        cheetahControlPopUp = GameObject.FindGameObjectWithTag("Cheetah Text");
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +35,8 @@ public class Door : MonoBehaviour
                 UnityEngine.Debug.Log(xpos);
                 UnityEngine.Debug.Log(ypos);
                 cam.MoveToNewRoom(nextRoom);
+                gorillaControlPopUp.SetActive(false);
+                cheetahControlPopUp.SetActive(false);
 
             }
             else if (collision.transform.position.x > transform.position.x && doortype)
@@ -40,6 +46,8 @@ public class Door : MonoBehaviour
                 UnityEngine.Debug.Log(xpos);
                 UnityEngine.Debug.Log(ypos);
                 cam.MoveToNewRoom(previousRoom);
+                gorillaControlPopUp.SetActive(false);
+                cheetahControlPopUp.SetActive(false);
 
             }
             else if (collision.transform.position.y < transform.position.y && !doortype)
@@ -49,6 +57,8 @@ public class Door : MonoBehaviour
                 UnityEngine.Debug.Log(xpos);
                 UnityEngine.Debug.Log(ypos);
                 cam.MoveToNewRoom(nextRoom);
+                gorillaControlPopUp.SetActive(false);
+                cheetahControlPopUp.SetActive(false);
 
             }
             else if (collision.transform.position.y > transform.position.y && !doortype)
@@ -58,6 +68,8 @@ public class Door : MonoBehaviour
                 UnityEngine.Debug.Log(xpos);
                 UnityEngine.Debug.Log(ypos);
                 cam.MoveToNewRoom(previousRoom);
+                gorillaControlPopUp.SetActive(false);
+                cheetahControlPopUp.SetActive(false);
 
             }
 

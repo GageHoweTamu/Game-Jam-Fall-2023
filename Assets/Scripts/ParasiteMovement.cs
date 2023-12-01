@@ -42,6 +42,8 @@ public class PlayerController3 : MonoBehaviour
     public AudioSource BackgroundMusicData;
     //text vars
     public GameObject gorillaControlPopUp;
+    public GameObject parasiteControlPopUp;
+    public GameObject cheetahControlPopUp;
     public Canvas pauseMenu;
     //respawn vars
     public GameObject cameraScript;
@@ -58,6 +60,9 @@ public class PlayerController3 : MonoBehaviour
     public Transform troubleRoom;
     public GameObject troubleDoor1;
     public GameObject troubleDoor2;
+    //tutorial vars
+    public string TextToDisplay;
+    public GameObject gorillaTutorial;
 
     // Start is called before the first frame update
     private void Start()
@@ -75,6 +80,7 @@ public class PlayerController3 : MonoBehaviour
         pauseMenu.enabled = false;
         normalGrav = true;
         gravityFlipper = GameObject.FindGameObjectWithTag("GravityFlipper").GetComponent<gravityFlipperScript>();
+        cheetahControlPopUp.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -103,14 +109,17 @@ public class PlayerController3 : MonoBehaviour
         }
         if ((collision.gameObject.tag == "Gorilla") && (!controlling) && leaping) 
         {
-            /*
-            TextToDisplay = "Press space to jump";
-            GameObject GorillaText = Instantiate(controlTextPrefab, gorilla.transform.position.x, gorilla.transform.position.y + 5, 0);
-            GorillaText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
-            */
+            
+            // TextToDisplay = "Press space to jump";
+            // GameObject GorillaText = Instantiate(controlTextPrefab, gorilla.transform.position.x, gorilla.transform.position.y + 5, 0);
+            // GorillaText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
+            // UnityEngine.Debug.Log(gorillaTutorial.GetComponent<Canvas>().enabled);
+            // gorillaTutorial.GetComponent<Canvas>().enabled = true;        
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            gorillaControlPopUp.SetActive(true);
+            parasiteControlPopUp.SetActive(false);
             controlGorilla();
         }
         if ((collision.gameObject.tag == "Cheetah") && (!controlling) && leaping) 
@@ -118,6 +127,7 @@ public class PlayerController3 : MonoBehaviour
             cheetah = collision.gameObject;
             cheetahScript = collision.gameObject.GetComponent<CheetahController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            cheetahControlPopUp.SetActive(true);
             controlCheetah();
         }
         if(collision.gameObject.tag == "Spike")
@@ -483,7 +493,7 @@ public class PlayerController3 : MonoBehaviour
         gorilla.tag = "Player";
         gameObject.tag = "Untagged";
         anim_child.gameObject.SetActive(false);
-        gorillaControlPopUp.SetActive(true);
+        
     }
 
     public void controlCheetah()

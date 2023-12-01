@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5835890038867212818}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,4 +92,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousRoom: {fileID: 0}
   nextRoom: {fileID: 0}
+  partnerDoor: {fileID: 0}
   cam: {fileID: 0}
+  bigdoor: 0
+  doortype: 0
+  parasite: {fileID: 0}
+  xpos: 10
+  ypos: 10
+  gorillaControlPopUp: {fileID: 0}

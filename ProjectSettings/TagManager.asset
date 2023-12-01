@@ -12,6 +12,10 @@ TagManager:
   - Cheetah
   - Spike
   - GravityFlipper
+  - Door
+  - Popup
+  - Gorilla Text
+  - Parasite Text
   layers:
   - Default
   - TransparentFX
