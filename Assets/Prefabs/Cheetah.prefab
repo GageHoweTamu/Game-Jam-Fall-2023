@@ -173,10 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  jumpSound: {fileID: 0}
-  attackSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  audioSource: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 86d1e18324a394429add3c64ed08ad86, type: 3}
+  attackSound: {fileID: 8300000, guid: 86d1e18324a394429add3c64ed08ad86, type: 3}
+  deathSound: {fileID: 8300000, guid: 24b812e3f590345fa816f1d19bd77edb, type: 3}
+  audioSource: {fileID: 8787603882702529308}
   isGrounded: 0
   controlled: 0
   attacking: 0
@@ -194,11 +194,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8692812971541088994, guid: 423ed2124503e4676afd068699099078, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4694f181219264235b8d6641fe022d68, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: f7b2ebb9ecb654d0ea904d59ed411a6e, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -240,7 +240,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -42,6 +42,7 @@ public class CheetahController : MonoBehaviour
         rb.mass = 0.5f;
         player = GameObject.Find("PlayerParasite");
         parasiteScript = player.gameObject.GetComponent<PlayerController3>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -145,14 +146,16 @@ public class CheetahController : MonoBehaviour
 
         Flip();
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !parasiteScript.paused)
         {
             Attack();
+            audioSource.PlayOneShot(attackSound);
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump") && isGrounded && !parasiteScript.paused)
         {
             rb.AddForce(direction * 3, ForceMode2D.Impulse);
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 
@@ -229,13 +232,7 @@ public class CheetahController : MonoBehaviour
         }
         parasiteScript.gravityFlipper.ResetFlippers(parasiteScript.GetNormalGrav(), parasiteScript.respawnNormalGrav);
         parasiteScript.cam.MoveToNewRoom(parasiteScript.respawnRoom);
-        if (parasiteScript.respawnRoom == parasiteScript.troubleRoom)
-        {
-            parasiteScript.troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
-            parasiteScript.troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-            parasiteScript.troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
-            parasiteScript.troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-        }
+        parasiteScript.ResetDoors(parasiteScript.respawnRoom);
         if (parasiteScript.bigRoom)
         {
             parasiteScript.cam.ChangeCamSize(8.0f, true);

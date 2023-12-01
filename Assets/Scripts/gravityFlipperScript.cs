@@ -10,12 +10,15 @@ public class gravityFlipperScript : MonoBehaviour
     private float timer;
     public float delay = 1;
     private GameObject[] gravityFlippers;
+    public AudioSource audioSource;
+    public AudioClip sound;
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         parasiteScript = GameObject.Find("PlayerParasite").GetComponent<PlayerController3>();
         timer = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class gravityFlipperScript : MonoBehaviour
                 if (parasiteScript != null)
                 {
                     parasiteScript.GravityFlip();
+                    audioSource.PlayOneShot(sound);
                     gravityFlippers = GameObject.FindGameObjectsWithTag("GravityFlipper");
                     for (int i = 0; i < gravityFlippers.Length; ++i)
                     {

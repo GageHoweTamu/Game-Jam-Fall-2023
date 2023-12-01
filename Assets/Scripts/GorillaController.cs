@@ -24,6 +24,17 @@ public class GorillaController : MonoBehaviour
     private Vector2 direction;
     private int interval = 0; //not important
     private int movementFlipper = 1; //not important
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip wallBreak;
+    //animation vars
+    private Animator anim;
+    // public Transform anim_child;
+    private float idleWalkThresholdSpeed = 0.2f;
+    private float walkProportionalAnimSpeed = 1.0f;
+    //
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     private void Start()
@@ -36,6 +47,9 @@ public class GorillaController : MonoBehaviour
         rb.mass = 0.5f;
         player = GameObject.Find("PlayerParasite"); //this could be problematic depending on how we load things
         parasiteScript = player.gameObject.GetComponent<PlayerController3>();
+        audioSource = GetComponent<AudioSource>();
+        //animator
+        anim = GetComponentsInChildren<Animator>()[0];
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,6 +57,7 @@ public class GorillaController : MonoBehaviour
         if (collision.transform.tag.Equals("Wall") && attacking)
         {
             Destroy(collision.gameObject);
+            audioSource.PlayOneShot(wallBreak);
         }
         else if (collision.gameObject.CompareTag("Spike"))
         {
@@ -53,6 +68,10 @@ public class GorillaController : MonoBehaviour
 
     private void Update()
     {
+        //ANIMATION CONTROLS
+        anim.SetBool("running", Mathf.Abs(rb.velocity.x) > idleWalkThresholdSpeed);
+        anim.SetFloat("anim_speed_mult", Mathf.Abs(rb.velocity.x) * walkProportionalAnimSpeed);
+        //
         if (parasiteScript.GetNormalGrav())
         {
             direction = Vector2.down;
@@ -78,6 +97,7 @@ public class GorillaController : MonoBehaviour
             //UnityEngine.Debug.Log("not grounded"); 
         }
     }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -87,39 +107,12 @@ public class GorillaController : MonoBehaviour
             {
                 movementFlipper *= -1;
             }
-            gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
+            rb.velocity = new Vector2(movementFlipper * movementSpeed * 2, rb.velocity.y);
+            // would rather not do finite derivatives on transform.position
+            // gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
             ++interval;
+            AIFlip();
         }
-        /*
-        if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
-        {
-            AIFlip(player.transform.position.x);
-            //jump code
-            if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
-            {
-                //change the value below to change jump height
-                //rb.AddForce(Vector2.up * 6f, ForceMode2D.Impulse);
-                isGrounded = false;
-            }
-            //attack code
-            if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
-            {
-                //Attack();
-            }
-            //move code
-            else
-            {
-                if (isFacingRight)
-                {
-                    //transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    //transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-                }
-            }
-        }
-        */
     }
 
 
@@ -137,16 +130,17 @@ public class GorillaController : MonoBehaviour
         }
         if (Input.GetAxis("Horizontal") != 0)
         {
-          gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * 3, rb.velocity.y);
+        //   gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
             
         }
 
         Flip();
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !parasiteScript.paused)
         {
             timer = Time.time;
         }
-        if (Input.GetButtonUp("Jump") && isGrounded)
+        if (Input.GetButtonUp("Jump") && isGrounded && !parasiteScript.paused)
         {
 
             isGrounded = false;
@@ -157,11 +151,13 @@ public class GorillaController : MonoBehaviour
                 jpower = 1;
             }
             rb.AddForce(direction * (jpower * 10), ForceMode2D.Impulse);
-            
+            audioSource.PlayOneShot(jumpSound);
+
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !parasiteScript.paused)
         {
             Attack();
+            audioSource.PlayOneShot(attackSound);
         }
     }
 
@@ -199,10 +195,10 @@ public class GorillaController : MonoBehaviour
         }
     }
 
-    //flip, but works while not controlled
-    private void AIFlip(float playerX)
+    //flips based on velocity
+    private void AIFlip()
     {
-        if (isFacingRight && playerX < rb.position.x || !isFacingRight && playerX > rb.position.x)
+        if(isFacingRight && rb.velocity.x < 0 || !isFacingRight && rb.velocity.x > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -213,6 +209,7 @@ public class GorillaController : MonoBehaviour
 
     public void Die(float x_pos, float y_pos)
     {
+        audioSource.PlayOneShot(deathSound);
         gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
         if (rb != null)
         {
@@ -237,13 +234,7 @@ public class GorillaController : MonoBehaviour
         }
         parasiteScript.gravityFlipper.ResetFlippers(parasiteScript.GetNormalGrav(), parasiteScript.respawnNormalGrav);
         parasiteScript.cam.MoveToNewRoom(parasiteScript.respawnRoom);
-        if (parasiteScript.respawnRoom == parasiteScript.troubleRoom)
-        {
-            parasiteScript.troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
-            parasiteScript.troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-            parasiteScript.troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
-            parasiteScript.troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-        }
+        parasiteScript.ResetDoors(parasiteScript.respawnRoom);
         if (parasiteScript.bigRoom)
         {
             parasiteScript.cam.ChangeCamSize(8.0f, true);

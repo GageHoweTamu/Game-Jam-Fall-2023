@@ -40,6 +40,8 @@ public class PlayerController3 : MonoBehaviour
     //sound vars
     public AudioSource FlapAudioData;
     public AudioSource BackgroundMusicData;
+    public AudioClip deathSound;
+    public AudioClip leapSound;
     //text vars
     public GameObject gorillaControlPopUp;
     public GameObject parasiteControlPopUp;
@@ -63,6 +65,10 @@ public class PlayerController3 : MonoBehaviour
     //tutorial vars
     public string TextToDisplay;
     public GameObject gorillaTutorial;
+    public GameObject troubleDoor3;
+    public GameObject troubleDoor4;
+    public GameObject troubleDoor5;
+    public bool paused;
 
     // Start is called before the first frame update
     private void Start()
@@ -81,6 +87,7 @@ public class PlayerController3 : MonoBehaviour
         normalGrav = true;
         gravityFlipper = GameObject.FindGameObjectWithTag("GravityFlipper").GetComponent<gravityFlipperScript>();
         cheetahControlPopUp.SetActive(false);
+        paused = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -103,6 +110,7 @@ public class PlayerController3 : MonoBehaviour
             UnityEngine.Debug.DrawRay(new Vector3(transform.position.x + 0.8f, transform.position.y, transform.position.z), direction * 0.5f, Color.red);
             if ((groundHitLeft.collider != null && groundHitMiddle.collider != null) || (groundHitRight.collider != null && groundHitMiddle.collider != null))
             {
+                leaping = false;
                 leaping = false;
                 UnityEngine.Debug.Log("hit ground, done leaping");
             }
@@ -167,6 +175,7 @@ public class PlayerController3 : MonoBehaviour
         {
             Time.timeScale = 0;
             pauseMenu.enabled = true;
+            paused = true;
         }
 
 
@@ -182,6 +191,7 @@ public class PlayerController3 : MonoBehaviour
                 transform.position = new Vector3(gorilla.transform.position.x, gorilla.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetButtonDown("Fire2") && !leaping)
                 {
+                    FlapAudioData.PlayOneShot(leapSound);
                     controlling = false;
                     leaping = true;
                     UnityEngine.Debug.Log("leaping from gorilla");
@@ -228,6 +238,7 @@ public class PlayerController3 : MonoBehaviour
                 transform.position = new Vector3(cheetah.transform.position.x, cheetah.transform.position.y, -3); //moves the player to match the controlled enemy, not needed if sprite is removed
                 if (Input.GetButtonDown("Fire2") && !leaping)
                 {
+                    FlapAudioData.PlayOneShot(leapSound);
                     controlling = false;
                     leaping = true;
                     if (normalGrav)
@@ -351,6 +362,7 @@ public class PlayerController3 : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2") && isGrounded && !leaping)
             {
+                FlapAudioData.PlayOneShot(leapSound);
                 leaping = true;
                 if (isFacingRight)
                 {
@@ -393,6 +405,7 @@ public class PlayerController3 : MonoBehaviour
     {
         if (!controlling)
         {
+            FlapAudioData.PlayOneShot(deathSound);
             UnityEngine.Debug.Log("Dead");
             gameObject.transform.position = new Vector3(x_pos, y_pos, 0.0f);
             rb.velocity = Vector3.zero;
@@ -465,13 +478,7 @@ public class PlayerController3 : MonoBehaviour
             }
         }
         cam.MoveToNewRoom(respawnRoom);
-        if (respawnRoom == troubleRoom)
-        {
-            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
-            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
-            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
-        }
+        ResetDoors(respawnRoom);
         if (bigRoom)
         {
             cam.ChangeCamSize(8.0f, true);
@@ -482,6 +489,111 @@ public class PlayerController3 : MonoBehaviour
         }
     }
 
+    public void ResetDoors(Transform respawnRoom)
+    {
+        if (respawnRoom.name == "Room 1")
+        {
+            troubleDoor1 = GameObject.Find("Door 1-2 Left");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 2-3 Left");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor3 = GameObject.Find("Door 3-4 Left");
+            troubleDoor3.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor3.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor4 = GameObject.Find("Door 4-5 Left");
+            troubleDoor4.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor4.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 5")
+        {
+            troubleDoor1 = GameObject.Find("Door 5-6 Left");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 6-7 Left");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor3 = GameObject.Find("Door 7-8 Left");
+            troubleDoor3.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor3.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 8")
+        {
+            troubleDoor1 = GameObject.Find("Door 8-9 Bottom");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 9-10 Bottom");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 10")
+        {
+            troubleDoor1 = GameObject.Find("Door 10-11 Right");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 11-12 Right");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor3 = GameObject.Find("Door 12-13 Right");
+            troubleDoor3.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor3.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor4 = GameObject.Find("Door 13-14 Right");
+            troubleDoor4.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor4.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 14")
+        {
+            troubleDoor1 = GameObject.Find("Door 14-15 Bottom");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 16-17 Right");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor3 = GameObject.Find("Door 17-18 Right");
+            troubleDoor3.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor3.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 18")
+        {
+            troubleDoor1 = GameObject.Find("Door 18-19 Bottom");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 19-20 Bottom");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 20")
+        {
+            troubleDoor1 = GameObject.Find("Door 20-21 Left");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 21-22 Left");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor3 = GameObject.Find("Door 22-23 Left");
+            troubleDoor3.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor3.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor4 = GameObject.Find("Door 23-24 Left");
+            troubleDoor4.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor4.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor5 = GameObject.Find("Door 24-25 Left");
+            troubleDoor5.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor5.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else if (respawnRoom.name == "Room 25")
+        {
+            troubleDoor1 = GameObject.Find("Door 25-26 Bottom");
+            troubleDoor1.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor1.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor2 = GameObject.Find("Door 26-27 Bottom");
+            troubleDoor2.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor2.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+            troubleDoor3 = GameObject.Find("Door 27-28 Bottom");
+            troubleDoor3.GetComponent<BoxCollider2D>().enabled = false;
+            troubleDoor3.GetComponent<Door>().partnerDoor.GetComponent<BoxCollider2D>().enabled = true;
+        }
+    }
     public void controlGorilla()
     {
         hostRB.velocity = Vector3.zero;
