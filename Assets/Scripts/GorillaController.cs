@@ -69,6 +69,7 @@ public class GorillaController : MonoBehaviour
     private void Update()
     {
         //ANIMATION CONTROLS
+        anim.SetBool("running", Mathf.Abs(rb.velocity.x) > idleWalkThresholdSpeed);
         anim.SetFloat("anim_speed_mult", Mathf.Abs(rb.velocity.x) * walkProportionalAnimSpeed);
         //
         if (parasiteScript.GetNormalGrav())
