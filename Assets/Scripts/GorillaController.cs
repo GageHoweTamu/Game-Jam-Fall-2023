@@ -78,6 +78,8 @@ public class GorillaController : MonoBehaviour
     private void Update()
     {
         //ANIMATION CONTROLS
+        anim.SetBool("jumping", !isGrounded && rb.velocity.y > 0);
+        anim.SetBool("falling", !isGrounded && rb.velocity.y < 0);
         anim.SetBool("running", Mathf.Abs(rb.velocity.x) > idleWalkThresholdSpeed);
         anim.SetFloat("anim_speed_mult", Mathf.Abs(rb.velocity.x) * walkProportionalAnimSpeed);
         //
@@ -167,6 +169,8 @@ public class GorillaController : MonoBehaviour
         {
             Attack();
             audioSource.PlayOneShot(attackSound);
+            //ANIMATION CONTROL
+            anim.SetTrigger("punch");
         }
     }
 

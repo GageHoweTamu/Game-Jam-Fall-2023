@@ -295,6 +295,11 @@ public class PlayerController3 : MonoBehaviour
             anim.SetBool("jump",jump);
             squash = (Input.GetAxis("Vertical") < 0.0f && isGrounded && Mathf.Abs(rb.velocity.x) < idleWalkThresholdSpeed);
             anim.SetBool("squash",squash);
+
+            if(Input.GetKeyDown(KeyCode.B))
+            {
+                anim.SetTrigger("emote");
+            }
             /* cool idea but sprites are origined on their center so this causes floating
             if(squash)
             {
