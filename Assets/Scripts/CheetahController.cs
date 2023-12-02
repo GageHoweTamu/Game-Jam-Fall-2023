@@ -88,6 +88,7 @@ public class CheetahController : MonoBehaviour
             if (interval % 40 == 0)
             {
                 movementFlipper *= -1;
+                AIFlip();
             }
             gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
             ++interval;
@@ -194,15 +195,12 @@ public class CheetahController : MonoBehaviour
     }
 
     //flip, but works while not controlled
-    private void AIFlip(float playerX)
+    private void AIFlip()
     {
-        if (isFacingRight && playerX < rb.position.x || !isFacingRight && playerX > rb.position.x)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
+        isFacingRight = !isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     public void Die(float x_pos, float y_pos)
