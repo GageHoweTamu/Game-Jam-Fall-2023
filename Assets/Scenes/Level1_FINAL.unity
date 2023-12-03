@@ -30588,7 +30588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618, y: 452}
+  m_AnchoredPosition: {x: -997, y: 620}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785338885
@@ -85253,14 +85253,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2327077525167708557, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1198
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327077525167708557, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 210
-      objectReference: {fileID: 0}
     - target: {fileID: 2925394139066743591, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
       propertyPath: m_Name
       value: GorillaText
@@ -85285,18 +85277,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Press space to jump! Hold space longer to jump Higher! left click to
         punch!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000700357199339706, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
-      propertyPath: m_fontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000700357199339706, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
-      propertyPath: m_margin.z
-      value: 583.44226
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000700357199339706, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7053892673299680003, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
       propertyPath: m_Name
