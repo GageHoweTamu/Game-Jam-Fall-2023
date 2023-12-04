@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 
@@ -72,7 +69,6 @@ public class GorillaController : MonoBehaviour
             UnityEngine.Debug.Log("fun");
             SceneManager.LoadScene("EndingScreen");
         }
-        //Debug.Log("Collision");
     }
 
     private void Update()
@@ -103,7 +99,6 @@ public class GorillaController : MonoBehaviour
         else
         {
             isGrounded = false;
-            //UnityEngine.Debug.Log("not grounded"); 
         }
     }
 
@@ -117,8 +112,6 @@ public class GorillaController : MonoBehaviour
                 movementFlipper *= -1;
             }
             rb.velocity = new Vector2(movementFlipper * movementSpeed * 2, rb.velocity.y);
-            // would rather not do finite derivatives on transform.position
-            // gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
             ++interval;
             AIFlip();
         }
@@ -140,8 +133,6 @@ public class GorillaController : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * 3, rb.velocity.y);
-        //   gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 3 * Time.deltaTime, 0.0f, 0.0f);
-            
         }
 
         Flip();

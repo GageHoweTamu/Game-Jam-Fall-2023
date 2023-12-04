@@ -755,11 +755,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &9594825 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 240595660405141277, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-  m_PrefabInstance: {fileID: 914656200594514837}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &10982355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1888459777428371014, guid: 2edd9b97f177ee34195176fb7f83bde8, type: 3}
@@ -1785,11 +1780,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2883,6 +2882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3103,6 +3106,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3745,6 +3752,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 765788938}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3910,11 +3925,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1363737874421644909, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
   m_PrefabInstance: {fileID: 88143800}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &93045769 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7053892673299680003, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
-  m_PrefabInstance: {fileID: 2817532602217804742}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &93045773 stripped
 RectTransform:
@@ -4301,6 +4311,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1261280009}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4552,6 +4570,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1779532772}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5370,6 +5396,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 625327974}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5434,11 +5468,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6016,6 +6054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6510,6 +6552,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7601,6 +7647,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 490893273}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7712,6 +7766,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 410194155}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9291,6 +9353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9711,6 +9777,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 122641070}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9923,11 +9997,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10146,6 +10224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10215,6 +10297,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11227,6 +11313,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 625327974}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11250,11 +11344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5099146681048793499, guid: a476f10ba394c8c488944609872a6e53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 99.11
+      value: 98.952
       objectReference: {fileID: 0}
     - target: {fileID: 5099146681048793499, guid: a476f10ba394c8c488944609872a6e53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.05
+      value: 35.851
       objectReference: {fileID: 0}
     - target: {fileID: 5099146681048793499, guid: a476f10ba394c8c488944609872a6e53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11477,6 +11571,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1531887886}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11699,6 +11801,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11990,6 +12096,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12394,6 +12504,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 626732993}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12527,6 +12645,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12721,6 +12843,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 10982355}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12868,6 +12998,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13693,6 +13827,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 2042336196}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14745,6 +14887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -15043,6 +15189,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1495709423}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15254,6 +15408,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15613,11 +15771,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16042,6 +16204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16065,7 +16231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1.777731
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16073,7 +16239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.78
+      value: 30.3
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16197,6 +16363,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16335,11 +16505,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16560,6 +16734,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16784,6 +16962,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &416483842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1516365008}
+    m_Modifications:
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 67.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: appearTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: disappearTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_Name
+      value: CrumblingPlatform (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+--- !u!4 &416483843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+  m_PrefabInstance: {fileID: 416483842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &417016510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17135,6 +17387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17194,11 +17450,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17305,6 +17565,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 504715339}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17410,6 +17678,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1019672676}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17937,16 +18213,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1364413018604170134, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1822236
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364413018604170134, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_Size.y
-      value: 4.5843277
+      value: 2.1705132
       objectReference: {fileID: 0}
     - target: {fileID: 2438571735399539038, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.36
+      value: 100.72
       objectReference: {fileID: 0}
     - target: {fileID: 2438571735399539038, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.3358
+      value: 36.5427
       objectReference: {fileID: 0}
     - target: {fileID: 2438571735399539038, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17982,15 +18262,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5294907161894409378, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 1.2595367
       objectReference: {fileID: 0}
     - target: {fileID: 5294907161894409378, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_Size.y
-      value: 4.6
+      value: 2.2086105
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294907161894409378, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.015098572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294907161894409378, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.008728027
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294907161894409378, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.1822236
       objectReference: {fileID: 0}
     - target: {fileID: 5294907161894409378, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 4.5843277
+      value: 2.1705132
       objectReference: {fileID: 0}
     - target: {fileID: 8375330439237711869, guid: 950de08b3fa78944cb84ebb8ddae9504, type: 3}
       propertyPath: m_Name
@@ -19236,11 +19528,89 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+--- !u!1001 &490447128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1516365008}
+    m_Modifications:
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 67.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: appearTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: disappearTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_Name
+      value: CrumblingPlatform (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+--- !u!4 &490447129 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+  m_PrefabInstance: {fileID: 490447128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &490893273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1888459777428371014, guid: 2edd9b97f177ee34195176fb7f83bde8, type: 3}
@@ -20336,6 +20706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21134,11 +21508,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21746,6 +22124,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1019672676}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22159,6 +22545,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1303424452}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22526,11 +22920,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22596,6 +22994,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23739,6 +24141,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1779532772}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25372,11 +25782,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25658,6 +26072,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26752,6 +27170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27346,6 +27768,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28126,6 +28552,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29164,11 +29594,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29432,6 +29866,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 407713385}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30151,7 +30593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -997, y: 620}
+  m_AnchoredPosition: {x: -439, y: 421}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785338885
@@ -30824,11 +31266,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33059,6 +33505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34696,6 +35146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34798,6 +35252,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1851172664}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35415,11 +35877,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36129,6 +36595,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 2082787699}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37137,6 +37611,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 596978665}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37558,11 +38040,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38207,6 +38693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38392,6 +38882,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 807882996}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38862,6 +39360,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 578720074}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40234,6 +40740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40863,38 +41373,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Size.x
-      value: 0.75677717
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.048931047
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 0d878a76aff64f9458ec2cb2e916627a, type: 2}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4722615945610823711, guid: eae789bf451a09f42a8d831b994d4140, type: 3}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Parent Gorilla
@@ -40940,8 +41418,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
@@ -41540,6 +42017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41809,6 +42290,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1031689683}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42284,6 +42773,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1059000153}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42343,11 +42840,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42752,6 +43253,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 504715339}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43087,6 +43596,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44423,6 +44936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44765,6 +45282,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45182,6 +45703,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 490893273}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46989,11 +47518,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47413,6 +47946,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 10982355}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48287,11 +48828,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48433,6 +48978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48538,6 +49087,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1019672676}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49172,6 +49729,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 130699829}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50017,6 +50582,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 2042336196}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50079,7 +50652,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: ca1d03c33fef6b6499fe59e03328af64, type: 3}
   m_Color: {r: 0.23137255, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -50522,6 +51095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50781,6 +51358,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1429542313}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51308,6 +51893,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1495709423}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53835,6 +54428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53899,6 +54496,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54459,6 +55060,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55517,6 +56122,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57373,6 +57982,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 765788938}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57779,6 +58396,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1059000153}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57838,11 +58463,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60476,6 +61105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60949,6 +61582,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1531887886}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61557,6 +62198,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 596978665}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61811,6 +62460,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1708478254}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61885,6 +62542,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61970,6 +62631,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 564035305}
+    - targetCorrespondingSourceObject: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 490447129}
+    - targetCorrespondingSourceObject: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 416483843}
     - targetCorrespondingSourceObject: {fileID: 3109079024180268025, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 687852735}
@@ -62652,6 +63319,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1303424452}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63025,61 +63700,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1064217263194392858, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: movementSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: trackingRangeX
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: trackingRangeY
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: detectingRangeY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4722615945610823711, guid: eae789bf451a09f42a8d831b994d4140, type: 3}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Gorilla (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_TagString
-      value: Gorilla
       objectReference: {fileID: 0}
     - target: {fileID: 8822095193542665157, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63122,8 +63745,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
@@ -63232,6 +63854,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1031689683}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64332,6 +64962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64437,6 +65071,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 765788938}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64956,6 +65598,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 626732993}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66516,6 +67166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66580,6 +67234,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -67120,6 +67778,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1019672676}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67607,6 +68273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67676,6 +68346,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -67900,6 +68574,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1851172664}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68383,6 +69065,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 765788938}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69150,7 +69840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1.777731
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69158,7 +69848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.78
+      value: 30.3
       objectReference: {fileID: 0}
     - target: {fileID: 3988163300870444536, guid: d108cfd02c3002d4c8bffea290d8e04c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70357,6 +71047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70426,6 +71120,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70848,6 +71546,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 807882996}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -72799,6 +73505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -72913,6 +73623,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1429542313}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73577,6 +74295,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74372,6 +75094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -74483,61 +75209,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1064217263194392858, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: movementSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: trackingRangeX
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: trackingRangeY
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: detectingRangeY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4722615945610823711, guid: eae789bf451a09f42a8d831b994d4140, type: 3}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Gorilla (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_TagString
-      value: Gorilla
       objectReference: {fileID: 0}
     - target: {fileID: 8822095193542665157, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74580,8 +75254,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
@@ -74739,7 +75412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1656, y: 987}
+  m_AnchoredPosition: {x: 700, y: 450}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904802028
@@ -74959,11 +75632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75098,6 +75775,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75299,9 +75980,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
       propertyPath: gorillaControlPopUp
       value: 
-      objectReference: {fileID: 93045769}
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -75774,6 +76459,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1261280009}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -76259,6 +76952,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 410194155}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -76470,6 +77171,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76837,6 +77542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -76906,6 +77615,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -77045,6 +77758,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -77528,6 +78245,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 807882996}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -77969,6 +78694,10 @@ PrefabInstance:
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78649,6 +79378,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 122641070}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79243,6 +79980,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 130699829}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80235,6 +80980,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 807882996}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80896,11 +81649,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81309,6 +82066,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 407713385}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81747,6 +82512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrumblingPlatform (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81945,6 +82714,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 2082787699}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82531,11 +83308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82717,6 +83498,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 1708478254}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83162,11 +83951,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084595705729593417, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: disappearTime
-      value: 0.3
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7195422240258416717, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
       propertyPath: m_Name
       value: CrumblingPlatform (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436452596498373791, guid: 99075374f29eacf4aa6425f931d31d34, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83599,6 +84392,14 @@ PrefabInstance:
       propertyPath: previousRoom
       value: 
       objectReference: {fileID: 578720074}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: cheetahControlPopUp
+      value: 
+      objectReference: {fileID: 1663476276}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: gorillaControlPopUp
+      value: 
+      objectReference: {fileID: 2108603013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84525,105 +85326,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1064217263194392858, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: anim_child
-      value: 
-      objectReference: {fileID: 9594825}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: movementSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: trackingRangeX
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: trackingRangeY
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: detectingRangeY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942298735163631577, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: idleWalkThresholdSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956483742873248204, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7697239
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3852706
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.042717457
-      objectReference: {fileID: 0}
-    - target: {fileID: 2195258832477615429, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.40396857
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398208995542996920, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549865610876193523, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4722615945610823711, guid: eae789bf451a09f42a8d831b994d4140, type: 3}
     - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_Name
       value: Gorilla
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5477458664648930130, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_TagString
-      value: Gorilla
-      objectReference: {fileID: 0}
-    - target: {fileID: 8822095193542665157, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8822095193542665157, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8822095193542665157, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8822095193542665157, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -84666,8 +85371,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2491231020523874880, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c592a72b7fca64345815f36907d87ec2, type: 3}
@@ -84968,6 +85672,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327077525167708557, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1210
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327077525167708557, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 351.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2925394139066743591, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
       propertyPath: m_Name
       value: GorillaText
@@ -84992,6 +85704,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Press space to jump! Hold space longer to jump Higher! left click to
         punch!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000700357199339706, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
+      propertyPath: m_margin.z
+      value: 602.87445
       objectReference: {fileID: 0}
     - target: {fileID: 7053892673299680003, guid: f7034088217b7d04d94f1b239111bb73, type: 3}
       propertyPath: m_Name

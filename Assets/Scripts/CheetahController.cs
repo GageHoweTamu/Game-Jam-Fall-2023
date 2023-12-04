@@ -77,7 +77,6 @@ public class CheetahController : MonoBehaviour
         else
         {
             isGrounded = false;
-            //UnityEngine.Debug.Log("not grounded"); 
         }
     }
     // Update is called once per frame
@@ -89,40 +88,8 @@ public class CheetahController : MonoBehaviour
             {
                 movementFlipper *= -1;
             }
-            gameObject.transform.position += new Vector3(movementFlipper * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
+            rb.velocity = new Vector2(movementFlipper * movementSpeed * 2, rb.velocity.y);
             ++interval;
-            /*
-            if (Mathf.Abs(player.transform.position.x - rb.position.x) < trackingRangeX && Mathf.Abs(player.transform.position.y - rb.position.y) < trackingRangeY)
-            {
-                AIFlip(player.transform.position.x);
-                //jump code
-                if (player.transform.position.y > rb.position.y && (player.transform.position.y - rb.position.y) > detectingRangeY && isGrounded && !attacking)
-                {
-                    //change the value below to change jump height
-                    rb.AddForce(direction * 6f, ForceMode2D.Impulse);
-                    isGrounded = false;
-                    audioSource.PlayOneShot(jumpSound);
-                }
-                //attack code
-                if ((Mathf.Abs(rb.position.x - player.transform.position.x) < attackRange) && isGrounded && !attacking)
-                {
-                    Attack();
-                    audioSource.PlayOneShot(attackSound);
-                }
-                //move code
-                else
-                {
-                    if (isFacingRight)
-                    {
-                        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-                    }
-                }
-            }
-            */
         }
     }
 
@@ -161,27 +128,18 @@ public class CheetahController : MonoBehaviour
 
     public void Attack()
     {
-        //if (!attacking)
-        //{
-            if (isFacingRight)
-            {
-                attacking = true;
-                rb.AddForce(Vector2.right * 6, ForceMode2D.Impulse); //gorilla attack right
-                //Invoke("StopAttack", 1);
-            }
-            if (!isFacingRight)
-            {
-                attacking = true;
-                rb.AddForce(Vector2.left * 6, ForceMode2D.Impulse); //gorilla attack left
-                //Invoke("StopAttack", 1);
-            }
-        //}
+        if (isFacingRight)
+        {
+            attacking = true;
+            rb.AddForce(Vector2.right * 6, ForceMode2D.Impulse); //gorilla attack right
+        }
+        if (!isFacingRight)
+        {
+            attacking = true;
+            rb.AddForce(Vector2.left * 6, ForceMode2D.Impulse); //gorilla attack left
+        }
     }
 
-    private void StopAttack()
-    {
-        attacking = false;
-    }
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
