@@ -1,11 +1,8 @@
-using Pathfinding.Legacy;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class PlayerController3 : MonoBehaviour
@@ -119,13 +116,7 @@ public class PlayerController3 : MonoBehaviour
             }
         }
         if ((collision.gameObject.tag == "Gorilla") && (!controlling) && leaping) 
-        {
-            
-            // TextToDisplay = "Press space to jump";
-            // GameObject GorillaText = Instantiate(controlTextPrefab, gorilla.transform.position.x, gorilla.transform.position.y + 5, 0);
-            // GorillaText.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(textToDisplay);
-            // UnityEngine.Debug.Log(gorillaTutorial.GetComponent<Canvas>().enabled);
-            // gorillaTutorial.GetComponent<Canvas>().enabled = true;        
+        {       
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -177,7 +168,6 @@ public class PlayerController3 : MonoBehaviour
         else 
         { 
             isGrounded = false; 
-            //UnityEngine.Debug.Log("not grounded"); 
         }
         if(Input.GetButtonDown("Pause"))
         {
@@ -234,7 +224,6 @@ public class PlayerController3 : MonoBehaviour
                             rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
                         }
                     }
-                    //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(gorilla);
                     anim_child.gameObject.SetActive(true);
@@ -280,7 +269,6 @@ public class PlayerController3 : MonoBehaviour
                             rb.velocity = new Vector2(movementSpeed * 2.0f, movementSpeed * -1f);
                         }
                     }
-                    //sprite.enabled = true; //turns the sprite back on
                     gameObject.tag = "Player";
                     Destroy(cheetah);
                     anim_child.gameObject.SetActive(true);
@@ -323,8 +311,6 @@ public class PlayerController3 : MonoBehaviour
                 if (Input.GetAxis("Horizontal") != 0.0f)
                 {
                     rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed, rb.velocity.y);
-                    // gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0.0f, 0.0f);
-                    // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0.0f, 0.0f), ForceMode2D.Impulse);
                 }
                 anim_child.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
             }
@@ -352,9 +338,6 @@ public class PlayerController3 : MonoBehaviour
                 if (Input.GetAxis("Horizontal") != 0.0f)
                 {
                     rb.velocity = new Vector2(Input.GetAxis("Horizontal") * movementSpeed * 2.0f, rb.velocity.y);
-                    
-                    // gameObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed * 2 * Time.deltaTime, 0.0f, 0.0f);
-                    // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0.0f, 0.0f), ForceMode2D.Impulse);
                 }
             }
 
@@ -633,13 +616,6 @@ public class PlayerController3 : MonoBehaviour
         gameObject.tag = "Untagged";
         anim_child.gameObject.SetActive(false);
     }
-    /*
-    public void GetRespawnPos(Transform doorpos)
-    {
-        x_pos = doorpos.position.x;
-        y_pos = doorpos.position.y;
-    }
-    */
     public void GravityFlip()
     {
         normalGrav = !normalGrav;
