@@ -69,6 +69,8 @@ public class PlayerController3 : MonoBehaviour
     public GameObject troubleDoor4;
     public GameObject troubleDoor5;
     public bool paused;
+    public bool controlledGorilla;
+    public bool controlledCheetah;
 
     // Start is called before the first frame update
     private void Start()
@@ -88,6 +90,8 @@ public class PlayerController3 : MonoBehaviour
         gravityFlipper = GameObject.FindGameObjectWithTag("GravityFlipper").GetComponent<gravityFlipperScript>();
         cheetahControlPopUp.SetActive(false);
         paused = false;
+        controlledGorilla = false;
+        controlledCheetah = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -120,7 +124,11 @@ public class PlayerController3 : MonoBehaviour
             gorilla = collision.gameObject;
             gorillaScript = collision.gameObject.GetComponent<GorillaController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
-            gorillaControlPopUp.SetActive(true);
+            if (!controlledGorilla)
+            {
+                gorillaControlPopUp.SetActive(true);
+                controlledGorilla = true;
+            }
             parasiteControlPopUp.SetActive(false);
             controlGorilla();
         }
@@ -129,7 +137,12 @@ public class PlayerController3 : MonoBehaviour
             cheetah = collision.gameObject;
             cheetahScript = collision.gameObject.GetComponent<CheetahController>();
             hostRB = collision.gameObject.GetComponent<Rigidbody2D>();
-            cheetahControlPopUp.SetActive(true);
+            if (!controlledCheetah)
+            {
+                cheetahControlPopUp.SetActive(true);
+                controlledCheetah = true;
+            }
+            parasiteControlPopUp.SetActive(false);
             controlCheetah();
         }
         if(collision.gameObject.tag == "Spike")

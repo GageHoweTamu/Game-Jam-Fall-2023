@@ -8638,7 +8638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38926,7 +38926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39399,7 +39399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57038,7 +57038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59251,6 +59251,8 @@ MonoBehaviour:
   troubleDoor4: {fileID: 0}
   troubleDoor5: {fileID: 0}
   paused: 0
+  controlledGorilla: 0
+  controlledCheetah: 0
 --- !u!61 &1453141315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62532,7 +62534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64371,7 +64373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70805,7 +70807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76422,6 +76424,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
+      propertyPath: partnerDoor
+      value: 
+      objectReference: {fileID: 1296737421}
+    - target: {fileID: 5835890038867212818, guid: 005fcdf30e683e042b6d072f68f2bdc2, type: 3}
       propertyPath: cheetahControlPopUp
       value: 
       objectReference: {fileID: 1663476276}
@@ -79796,7 +79802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514217573062079538, guid: 542f25b87bd9e33429d030002c7cf049, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
